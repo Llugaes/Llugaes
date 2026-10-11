@@ -62,9 +62,21 @@ PSN 返回的已玩游戏与累计时长。不同版本独立记录。
 
 ## Nintendo Switch
 
-待连接 · 数据时间：尚未采集（北京时间）
+已连接 · 数据时间：2026/10/11 16:54（北京时间）
 
-尚未连接，不将缺失数据记为 0。
+仅列出采集时观测到的游戏；时长可能为平台近似值，不代表完整历史。
+
+| 游戏 | 近两周 / 小时 | 累计 / 小时 |
+| :--- | ---: | ---: |
+| Xenoblade Definitive Edition Nintendo Switch 2 Edition | — | 53.6 |
+| The Duskbloods Network Test Ver. | — | 2.1 |
+| リズム天国 ミラクルスターズ | — | 0.4 |
+| ドンキーコング バナンザ | — | 1.2 |
+| Pokémon LEGENDS Z-A Nintendo Switch 2 Edition | — | 14.3 |
+| 星のカービィ Wii デラックス | — | 3.8 |
+| MONSTER HUNTER GENERATIONS ULTIMATE | — | 12.8 |
+| ユニコーンオーバーロード体験版 | — | 1.1 |
+| ゼルダの伝説　ブレス オブ ザ ワイルド | — | 3.6 |
 
 ## 后续游玩增量
 

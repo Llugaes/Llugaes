@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="792" viewBox="0 0 920 792" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="904" viewBox="0 0 920 904" role="img" aria-labelledby="title desc">
     <title id="title">Llugaes 的游戏记录</title>
-    <desc id="desc">Steam 近两周 131.1 小时，5 个游戏；已连接，采集于 2026/10/11 16:42。PlayStation 已连接，Switch 待连接。</desc>
-    <rect width="920" height="792" rx="18" fill="#132832"/>
+    <desc id="desc">Steam 近两周 131.1 小时，5 个游戏；已连接，采集于 2026/10/11 16:42。PlayStation 已连接，Switch 已连接。</desc>
+    <rect width="920" height="904" rx="18" fill="#132832"/>
     <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif">
       <text x="36" y="47" font-size="15" fill="#a0c3bd" letter-spacing="3">PLAYER LOG</text>
       <text x="36" y="95" font-size="32" fill="#f2eadb" font-weight="650">最近在玩</text>
@@ -43,13 +43,17 @@
       <text x="884" y="620" font-size="14" fill="#b0c0c2" text-anchor="end">33 个已玩游戏 · 9 个白金</text>
       <text x="36" y="651" font-size="21" fill="#f2eadb" >Onimusha: Way of the Sword</text>
       <text x="36" y="676" font-size="12" fill="#9baeb3" >采集于 2026/10/11 16:49 · 已连接</text>
-      <path d="M36 707H884" stroke="#30454c"/>
-      <circle cx="41" cy="741" r="4" fill="#96d4ba"/>
-      <text x="54" y="747" font-size="16" fill="#d7e1df" >Steam · 已连接</text>
-<circle cx="335" cy="741" r="4" fill="#96d4ba"/>
-      <text x="348" y="747" font-size="16" fill="#d7e1df" >PlayStation · 已连接</text>
-<circle cx="629" cy="741" r="4" fill="#607a85"/>
-      <text x="642" y="747" font-size="16" fill="#d7e1df" >Switch · 待连接</text>
-      <text x="36" y="774" font-size="12" fill="#9baeb3" >时长按平台记录；各平台独立统计。完整记录与数据说明 ↗</text>
+<text x="36" y="732" font-size="14" fill="#a0c3bd" letter-spacing="2">NINTENDO SWITCH</text>
+      <text x="884" y="732" font-size="14" fill="#b0c0c2" text-anchor="end">最近观测到的游戏</text>
+      <text x="36" y="763" font-size="21" fill="#f2eadb" >Xenoblade Definitive Edition Nintendo Switch 2 Edition</text>
+      <text x="36" y="788" font-size="12" fill="#9baeb3" >采集于 2026/10/11 16:54 · 已连接</text>
+      <path d="M36 819H884" stroke="#30454c"/>
+      <circle cx="41" cy="853" r="4" fill="#96d4ba"/>
+      <text x="54" y="859" font-size="16" fill="#d7e1df" >Steam · 已连接</text>
+<circle cx="335" cy="853" r="4" fill="#96d4ba"/>
+      <text x="348" y="859" font-size="16" fill="#d7e1df" >PlayStation · 已连接</text>
+<circle cx="629" cy="853" r="4" fill="#96d4ba"/>
+      <text x="642" y="859" font-size="16" fill="#d7e1df" >Switch · 已连接</text>
+      <text x="36" y="886" font-size="12" fill="#9baeb3" >时长按平台记录；各平台独立统计。完整记录与数据说明 ↗</text>
     </g>
   </svg>
