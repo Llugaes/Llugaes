@@ -7,8 +7,8 @@
 
 <a href="./docs/ACTIVITY.md">
   <picture>
-    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/f07261f2441164d45cc4cb8c33ada5ed244bc927/assets/player-log-mobile.svg" />
-    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/f07261f2441164d45cc4cb8c33ada5ed244bc927/assets/player-log.svg" alt="最近在玩：游戏封面、时长、活动日历和各平台同步状态" width="100%" />
+    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/9b3501636715387938b7da0f0941421d5c909f62/assets/player-log-mobile.svg" />
+    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/9b3501636715387938b7da0f0941421d5c909f62/assets/player-log.svg" alt="最近在玩：游戏封面、时长、活动日历和各平台同步状态" width="100%" />
   </picture>
 </a>
 
