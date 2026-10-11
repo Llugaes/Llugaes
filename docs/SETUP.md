@@ -54,7 +54,7 @@ GitHub Actions 云端运行，本机不必开机。流程为：指定平台采�
 - Steam 的近两周时长独立展示；不把软件运行时间、各平台时长直接相加成个人在线时间。工具排除表在 `activity.config.json`。
 - 累计时长只对同账号、同来源、同游戏的两次采集求差。初次采集、来源切换、新游戏和计数回退都建立新基线。
 - 保留采集区间，不把跨日或补报时长拆成虚构的每日热力图。不使用机器人采集提交冒充本人的 coding 活跃度。
-- 主页的绿色日历格表示 Steam / PSN **发现累计时长增长的采集日**，金色表示 Nintendo 提供的**实际游玩日**；无证据的历史留空。日历展示最近 8 周，原始日记录和采集区间保留 366 天。
+- 主页只展示三平台存档与近期游戏。Nintendo 逐日记录和 Steam / PSN 采集区间在[全部记录](./ACTIVITY.md)中查看，保留 366 天。
 - 同步失败不覆盖最后有效结果及其时间。已配置平台失败时 Actions 标红；尚未设置 Secret 的平台显示待连接。
 - GitHub 公开仓库的 scheduled workflows 长期无仓库活动时可能自动停用；在 Actions 中按提示重新启用。
 
@@ -71,6 +71,9 @@ npm run import:steam -- 'C:\Program Files (x86)\Steam'
 本机导入只读取配置指定账号的游戏记录，不保存整份 Steam 配置。云端已经连接后，本机导入会拒绝覆盖。`npm run sync` 从环境变量读取与 GitHub Secrets 同名的凭据。
 
 ### 参考
+
+- 主页动效参考：[Platane/snk](https://github.com/Platane/snk) 的自包含 SVG、[lowlighter](https://github.com/lowlighter/lowlighter) 的数据生成方式。这里使用自行绘制的存档卡与 CSS 动效，无需外部卡片服务；系统开启减少动态效果时自动静止。
+- 平台图标来自 [Simple Icons](https://github.com/simple-icons/simple-icons)，[CC0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md)。Nintendo Switch 图标取自 11.15.0。
 
 - [Steam IPlayerService](https://partner.steamgames.com/doc/webapi/iplayerservice?language=english)
 - [psn-api 认证接口](https://psn-api.achievements.app/api-docs/authentication)

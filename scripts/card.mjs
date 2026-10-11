@@ -1,110 +1,124 @@
+import { readFileSync } from 'node:fs'
 import { coverKey } from './covers.mjs'
+
 export const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]))
-const colors = { ink: '#f2efe5', quiet: '#9db5bf', mint: '#9ce7cc', gold: '#f2d095', line: '#2b444e', panel: '#142d37' }
 export const hours = value => value == null ? '—' : value > 0 && value < 6 ? '<0.1' : (value / 60).toFixed(1)
-export const dateTime = value => value ? new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(value)) : '尚未连接'
-const dateOnly = value => value ? dateTime(value).split(' ')[0] : '日期未知'
+export const dateTime = value => value ? new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(value)) : '未连接'
 export const statusText = p => p.reason === 'auth_required' ? '需要重新授权' : ({ local: '本机记录', synced: '已连接', stale: '更新中断', pending: '待连接' }[p.status] || '待连接')
-function short(value, limit) { let n = 0, out = ''; for (const c of String(value)) { n += c.charCodeAt(0) > 255 ? 2 : 1; if (n > limit) return out + '…'; out += c } return out }
+const colors = { ink: '#f4f4ed', quiet: '#a5aaa9', line: '#323738', base: '#0d1117', lime: '#d4ff73', blue: '#8fbaff', red: '#ff9a82' }
+const icons = Object.fromEntries(['steam', 'playstation', 'nintendoswitch'].map(name => [name, readFileSync(new URL(`../assets/icons/${name}.svg`, import.meta.url), 'utf8').match(/<path d="([^"]+)"/)[1]]))
 const t = (x, y, value, size = 16, color = colors.ink, extra = '') => `<text x="${x}" y="${y}" font-size="${size}" fill="${color}" ${extra}>${escape(value)}</text>`
-const box = (x, y, w, h, fill = colors.panel, radius = 14, stroke = colors.line) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" fill="${fill}" stroke="${stroke}"/>`
-function cover(covers, key, x, y, w, h, id) {
-  const uri = covers[key]
-  return `<clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10"/></clipPath>` + (uri
-    ? `<image href="${uri}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${id})"/>`
-    : box(x, y, w, h, '#244550', 10) + t(x + w / 2, y + h / 2 + 5, 'GAME', 14, '#9bbdbb', 'text-anchor="middle"'))
+const line = (x, y, x2, color = colors.line) => `<path d="M${x} ${y}H${x2}" stroke="${color}"/>`
+const icon = (name, x, y, size, color) => `<g transform="translate(${x} ${y}) scale(${size / 24})"><path d="${icons[name]}" fill="${color}"/></g>`
+
+function short(value, limit) {
+  let size = 0, out = ''
+  for (const char of String(value)) { size += char.charCodeAt(0) > 255 ? 2 : 1; if (size > limit) return out + '…'; out += char }
+  return out
 }
-function dateKey(at) { return new Date(Date.parse(at) + 8 * 3600000).toISOString().slice(0, 10) }
-export function activityDays(data) {
-  const days = new Map()
-  for (const interval of data.intervals) if (interval.minutes > 0 && interval.platform !== 'switch') days.set(dateKey(interval.to), 'observed')
-  for (const day of data.platforms.switch.days || []) if (day.minutes > 0) days.set(day.date, 'actual')
-  return days
-}
-function calendar(data, x, y, date) {
-  const days = activityDays(data), today = dateKey(date), last = new Date(`${today}T00:00:00Z`)
-  const start = new Date(last); start.setUTCDate(start.getUTCDate() - 55 - last.getUTCDay() + 6)
-  let svg = ''
-  for (let n = 0; n < 56; n++) {
-    const day = new Date(start); day.setUTCDate(day.getUTCDate() + n)
-    const key = day.toISOString().slice(0, 10), kind = days.get(key), cx = x + Math.floor(n / 7) * 17, cy = y + n % 7 * 17
-    const fill = key > today ? '#152e38' : kind === 'actual' ? colors.gold : kind === 'observed' ? colors.mint : '#213a43'
-    svg += `<rect x="${cx}" y="${cy}" width="12" height="12" rx="3" fill="${fill}" stroke="${key === today ? '#a0c9bd' : 'none'}"><title>${key} · ${kind === 'actual' ? 'Nintendo 游玩日' : kind === 'observed' ? '发现新增时长的采集日' : '无可确认活动记录'}</title></rect>`
+function titleLines(value, limit) {
+  const words = String(value).split(/\s+/u).filter(Boolean)
+  const length = v => [...v].reduce((n, c) => n + (c.charCodeAt(0) > 255 ? 2 : 1), 0)
+  const lines = []; let current = ''
+  for (const word of words) {
+    const join = current ? ' ' : ''
+    if (length(current + join + word) > limit && current) { lines.push(current); current = word }
+    else current += join + word
   }
-  return svg
+  if (current) lines.push(current)
+  return [short(lines[0] || '', limit), short(lines.slice(1).join(' '), limit)]
+}
+function image(covers, key, x, y, w, h, id) {
+  const uri = covers[key]
+  return `<clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3"/></clipPath>` + (uri
+    ? `<image href="${uri}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${id})"/>`
+    : `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#22282b"/>${t(x + 15, y + h / 2, 'NO SAVE', 18, colors.quiet, 'class="mono"')}`)
+}
+
+function platformCard(data, covers, key, x, y, width, mobile, index) {
+  const snapshot = data.platforms[key], game = snapshot.games[0]
+  const accent = { steam: colors.lime, psn: colors.blue, switch: colors.red }[key]
+  const name = { steam: 'STEAM', psn: 'PLAYSTATION', switch: 'SWITCH' }[key]
+  const logo = { steam: 'steam', psn: 'playstation', switch: 'nintendoswitch' }[key]
+  const title = titleLines(game?.title || '还没有记录', mobile ? 30 : 27)
+  const height = mobile ? 318 : 340, connected = snapshot.status === 'synced'
+  const artHeight = mobile ? 142 : 165, artBottom = 42 + artHeight
+  const count = key === 'psn' ? snapshot.trophies?.platinum : key === 'steam' ? game?.recentMinutes : game?.totalMinutes
+  const metric = key === 'psn' ? String(count ?? '—') : hours(count)
+  const unit = key === 'psn' ? '白金' : 'h'
+  const caption = key === 'psn' ? `${snapshot.games.length} 个游戏` : key === 'steam' ? '这两周' : '本作累计'
+  const stamp = key === 'steam' ? `累计 ${hours(game?.totalMinutes)} h` : game?.lastPlayedAt ? `上次 ${dateTime(game.lastPlayedAt).split(' ')[0]}` : '尚未游玩'
+  const body = `<path d="M0 10L10 0H${width - 15}L${width} 15V${height - 10}L${width - 10} ${height}H0Z" fill="url(#shell)" stroke="${key === 'steam' ? '#859b58' : colors.line}"/>
+    <path d="M0 10L10 0H${width - 15}" fill="none" stroke="${accent}" opacity=".8"/>
+    <path d="M${width - 15} 0V15H${width}" fill="none" stroke="#697073"/>
+    ${icon(logo, 13, 12, 18, accent)}${t(39, 26, name, 13, colors.ink, 'class="mono" font-weight="700" letter-spacing="1"')}
+    ${t(width - 13, 26, `0${index + 1}`, 12, '#818a8c', 'class="mono" text-anchor="end"')}
+    ${image(covers, game ? coverKey(key, game) : '', 10, 42, width - 20, artHeight, `art-${key}`)}
+    <g clip-path="url(#art-${key})"><path class="shine shine-${index}" d="M-120 38H-85L10 ${artBottom + 10}H-25Z" fill="url(#shine)"/></g>
+    <path d="M12 ${artBottom - 16}V${artBottom - 2}H26M${width - 26} 44H${width - 12}V58" fill="none" stroke="${accent}" stroke-width="2"/>
+    ${t(14, artBottom + 27, title[0], mobile ? 18 : 17, colors.ink, 'font-weight="650"')}
+    ${title[1] ? t(14, artBottom + 49, title[1], mobile ? 17 : 16, colors.ink) : ''}
+    ${t(14, height - 32, metric, mobile ? 35 : 42, accent, 'class="number" font-weight="700"')}
+    ${t(width - 14, height - 37, unit, 19, accent, 'text-anchor="end"')}
+    ${t(14, height - 12, caption, 12, colors.quiet)}${t(width - 14, height - 12, stamp, 11, colors.quiet, 'text-anchor="end" class="mono"')}`
+  const failure = connected ? '' : `<rect x="8" y="43" width="${width - 16}" height="28" fill="#161818" opacity=".95"/>${t(16, 63, statusText(snapshot), 13, colors.red)}`
+  return `<g transform="translate(${x} ${y})"><g class="enter enter-${index}">
+    <path d="M8 ${height + 4}H${width + 4}V18" fill="none" stroke="#000" stroke-width="9" opacity=".35"/>
+    ${body}${failure}
+    <path class="edge edge-${index}" d="M1 11L11 1H${width - 16}L${width - 1} 16V${height - 11}L${width - 11} ${height - 1}H1Z" pathLength="1000" fill="none" stroke="${accent}" stroke-width="1.5" stroke-dasharray="55 945" stroke-dashoffset="55" opacity="0"/>
+    </g></g>`
+}
+
+function recentGames(data, covers, y, width, mobile) {
+  const games = data.platforms.steam.games.slice(1, 5)
+  let content = t(24, y, 'ALSO PLAYED', 12, '#afb8af', 'class="mono" letter-spacing="2"')
+  const columns = mobile ? 2 : 4, gap = mobile ? 12 : 16, itemW = (width - 48 - (columns - 1) * gap) / columns
+  for (const [i, game] of games.entries()) {
+    const x = 24 + (i % columns) * (itemW + gap), top = y + 15 + Math.floor(i / columns) * 106
+    content += image(covers, coverKey('steam', game), x, top, itemW, mobile ? 58 : 56, `recent-${i}`)
+      + `<rect x="${x}" y="${top + (mobile ? 38 : 36)}" width="${itemW}" height="20" fill="#080b0e" opacity=".88"/>`
+      + t(x + itemW - 7, top + (mobile ? 52 : 50), `${hours(game.recentMinutes)} h`, 12, colors.lime, 'class="mono" text-anchor="end"')
+      + t(x, top + (mobile ? 76 : 75), short(game.title, mobile ? 18 : 25), mobile ? 12 : 13, colors.quiet)
+  }
+  return content
 }
 
 export function renderSvg(data, covers = {}, mobile = false) {
-  const width = mobile ? 440 : 920, steam = data.platforms.steam, games = steam.games.slice(0, 5)
-  const total = steam.games.reduce((sum, g) => sum + (g.recentMinutes || 0), 0), focus = games[0]
-  const latest = Object.values(data.platforms).map(p => p.collectedAt).filter(Boolean).sort().at(-1) || new Date().toISOString()
-  const extra = ['psn', 'switch'].filter(key => data.platforms[key].collectedAt)
-  const rowStep = mobile ? 144 : 120
-  const height = (mobile ? 1010 : 720) + extra.length * rowStep
-  let content = t(24, 38, 'LLUGAES / PLAYER LOG', 13, colors.mint, 'letter-spacing="2"')
-  content += t(24, 80, '最近在玩', 31, colors.ink, 'font-weight="700"')
-  content += t(width - 24, 78, `${hours(total)} h`, mobile ? 34 : 42, colors.mint, 'text-anchor="end" font-weight="700"')
-  content += t(24, 105, 'STEAM · 近两周', 13, colors.quiet)
-  content += t(width - 24, 104, `${steam.games.length} 个游戏`, 13, colors.quiet, 'text-anchor="end"')
-  const tileW = (width - 64) / 3
+  const width = mobile ? 360 : 920, height = mobile ? 1386 : 650
+  const steam = data.platforms.steam, total = steam.collectedAt ? steam.games.reduce((sum, g) => sum + (g.recentMinutes || 0), 0) : null
+  const connected = Object.values(data.platforms).filter(p => p.status === 'synced').length
+  let content = t(24, 31, 'LLUGAES / SAVE SELECT', mobile ? 11 : 12, colors.quiet, 'class="mono" letter-spacing="1.5"')
+  content += t(width - 24, 31, `${connected}/3 CONNECTED`, mobile ? 10 : 12, connected === 3 ? colors.lime : colors.red, 'class="mono" text-anchor="end"')
+  content += t(22, mobile ? 83 : 94, 'CONTINUE', mobile ? 43 : 64, colors.ink, 'font-weight="850" font-style="italic" letter-spacing="-3"')
+  if (mobile) content += t(width - 24, 112, `${hours(total)} h / STEAM 14D`, 13, colors.lime, 'class="mono" text-anchor="end"')
+  else content += t(width - 24, 85, `${hours(total)} h`, 45, colors.lime, 'class="number" text-anchor="end" font-weight="700"') + t(width - 24, 108, 'STEAM / 14 DAYS', 12, colors.quiet, 'class="mono" text-anchor="end" letter-spacing="1.5"')
+  content += line(24, 126, width - 24)
+  let offset = 24
+  const accents = [colors.lime, '#91ac69', '#627746', '#4c583e', '#393f34']
+  if (total > 0) for (const [i, game] of steam.games.entries()) {
+    const length = (width - 48) * game.recentMinutes / total
+    if (length > 1) content += `<path class="meter" d="M${offset.toFixed(2)} 126h${Math.max(0, length - 3).toFixed(2)}" stroke="${accents[i % accents.length]}" stroke-width="3"/>`
+    offset += length
+  }
   for (const [index, key] of ['steam', 'psn', 'switch'].entries()) {
-    const x = 24 + index * (tileW + 8), p = data.platforms[key]
-    content += box(x, 127, tileW, 68)
-      + `<circle cx="${x + 13}" cy="144" r="3" fill="${p.status === 'synced' ? colors.mint : p.status === 'local' ? colors.gold : '#627f8a'}"/>`
-      + t(x + 22, 149, { steam: 'Steam', psn: 'PSN', switch: 'Switch' }[key], 14)
-      + t(x + 11, 179, statusText(p), mobile ? 12 : 14, p.status === 'synced' ? colors.mint : colors.quiet)
+    content += platformCard(data, covers, key, mobile ? 24 : 24 + index * 298, mobile ? 149 + index * 330 : 157, mobile ? 312 : 276, mobile, index)
   }
-  const featureW = mobile ? 392 : 408
-  content += box(24, 212, featureW, 260, '#122934')
-  if (focus) {
-    content += cover(covers, coverKey('steam', focus), 34, 222, featureW - 20, 132, 'focus')
-      + t(40, 380, '近两周主力', 12, colors.gold)
-      + t(40, 407, short(focus.title, mobile ? 35 : 37), 21, colors.ink, 'font-weight="600"')
-      + t(40, 447, `${hours(focus.recentMinutes)} h`, 30, colors.mint, 'font-weight="650"')
-      + t(featureW + 8, 445, `占近期 ${total ? Math.round(focus.recentMinutes / total * 100) : 0}%`, 13, colors.quiet, 'text-anchor="end"')
-  } else content += t(40, 300, '等待游戏记录', 24)
-  const listX = mobile ? 24 : 452, listY = mobile ? 490 : 212, listW = mobile ? 392 : 444
-  for (const [index, game] of games.slice(1).entries()) {
-    const y = listY + index * 67
-    content += box(listX, y, listW, 58, '#132c35', 10)
-      + cover(covers, coverKey('steam', game), listX + 7, y + 7, 79, 44, `game${index}`)
-      + t(listX + 98, y + 22, short(game.title, mobile ? 26 : 31), 14)
-      + t(listX + 98, y + 44, `累计 ${hours(game.totalMinutes)} h`, 11, colors.quiet)
-      + t(listX + listW - 12, y + 44, `${hours(game.recentMinutes)} h`, 17, colors.mint, 'text-anchor="end" font-weight="600"')
-  }
-  const baseY = mobile ? 776 : 492
-  for (const [index, key] of extra.entries()) {
-    const p = data.platforms[key], game = p.games[0], y = baseY + index * rowStep
-    const accent = key === 'psn' ? '#a9c8ff' : colors.gold, textX = mobile ? 121 : 145
-    content += box(24, y, width - 48, rowStep - 12)
-      + cover(covers, game ? coverKey(key, game) : '', 36, y + 12, mobile ? 72 : 92, mobile ? 72 : 84, `platform-${key}`)
-      + t(textX, y + 27, key === 'psn' ? 'PLAYSTATION' : 'NINTENDO SWITCH', 12, accent, 'letter-spacing="1"')
-      + t(textX, y + 53, short(game?.title || '暂无游戏记录', mobile ? 25 : 48), mobile ? 16 : 19, colors.ink, 'font-weight="600"')
-      + t(textX, y + 77, game ? `上次游玩 ${dateOnly(game.lastPlayedAt)} · 累计 ${hours(game.totalMinutes)} h` : '等待平台记录', mobile ? 11 : 13, colors.quiet)
-    if (mobile) content += t(40, y + 113, key === 'psn' ? `${p.games.length} 个游戏 · ${p.trophies?.platinum ?? '—'} 白金 / ${p.trophies?.gold ?? '—'} 金 / ${p.trophies?.silver ?? '—'} 银 / ${p.trophies?.bronze ?? '—'} 铜` : `${p.games.length} 个游戏 · 已保留 ${p.days?.length || 0} 天逐日记录`, 12, accent)
-    else content += t(width - 40, y + 43, key === 'psn' ? `${p.trophies?.platinum ?? '—'} 白金` : `${p.games.length} 个游戏`, 24, accent, 'text-anchor="end" font-weight="650"')
-      + t(width - 40, y + 72, key === 'psn' ? `${p.games.length} 个游戏 · ${p.trophies?.gold ?? '—'} 金 / ${p.trophies?.silver ?? '—'} 银 / ${p.trophies?.bronze ?? '—'} 铜` : `已保留 ${p.days?.length || 0} 天逐日记录`, 12, colors.quiet, 'text-anchor="end"')
-  }
-  const y = baseY + extra.length * rowStep
-  content += box(24, y, width - 48, 183, '#102630')
-    + t(40, y + 28, '活动记录', 17, colors.ink, 'font-weight="600"')
-    + t(40, y + 48, '近 8 周', 11, colors.quiet)
-    + calendar(data, 40, y + 60, latest)
-  const infoX = mobile ? 190 : 248
-  content += t(infoX, y + 30, '自动同步', 15, colors.mint)
-    + t(infoX, y + 54, 'Steam / PSN · 每 2 小时', mobile ? 12 : 14, colors.quiet)
-    + t(infoX, y + 76, 'Switch · 每 6 小时', mobile ? 12 : 14, colors.quiet)
-  for (const [index, key] of ['steam', 'psn', 'switch'].entries()) {
-    const p = data.platforms[key]
-    content += t(infoX, y + 108 + index * 22, `${{ steam: 'Steam', psn: 'PSN', switch: 'Switch' }[key]} ${p.collectedAt ? dateTime(p.collectedAt) : '等待授权'}`, mobile ? 11 : 13, p.status === 'stale' ? colors.gold : colors.quiet)
-  }
-  if (!mobile) content += t(610, y + 57, '从真实记录开始积累', 18)
-    + t(610, y + 85, '绿色 · Steam / PSN 发现新增时长', 12, colors.mint)
-    + t(610, y + 109, '金色 · Nintendo 实际游玩日期', 12, colors.gold)
-    + t(610, y + 137, '未采集的历史留空', 12, colors.quiet)
-  content += t(24, height - 16, mobile ? '绿：发现新增记录的日期 · 金：Nintendo 游玩日期' : '游戏时长按平台记录，非精确在线时长。点击查看完整记录与同步详情 →', mobile ? 10 : 12, colors.quiet)
+  content += recentGames(data, covers, mobile ? 1156 : 532, width, mobile)
+  content += t(width - 24, height - 13, '全部存档 ↗', 12, colors.ink, 'text-anchor="end"')
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
-  <title id="title">Llugaes 的游戏记录</title><desc id="desc">Steam 近两周 ${hours(total)} 小时，${statusText(steam)}。PlayStation · ${statusText(data.platforms.psn)}。Switch · ${statusText(data.platforms.switch)}。</desc>
-  <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="18" fill="#0d232d" stroke="#29454d"/>
-  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif">${content}</g></svg>\n`
+<title id="title">Llugaes 的游戏存档</title><desc id="desc">Steam 近两周 ${hours(total)} 小时，${statusText(steam)}。PlayStation · ${statusText(data.platforms.psn)}。Switch · ${statusText(data.platforms.switch)}。</desc>
+<defs><linearGradient id="shell" x2=".8" y2="1"><stop stop-color="#232b2d"/><stop offset=".24" stop-color="#171d20"/><stop offset="1" stop-color="#111719"/></linearGradient>
+<linearGradient id="shine"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+<style>.mono{font-family:Consolas,Menlo,monospace}.number{font-family:Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums}.shine{opacity:0}
+@media(prefers-reduced-motion:no-preference){
+.enter{animation:load .7s cubic-bezier(.2,.8,.2,1) both}.enter-1{animation-delay:.12s}.enter-2{animation-delay:.24s}
+.edge{animation:trace 8s linear infinite}.edge-1{animation-delay:2.6s}.edge-2{animation-delay:5.2s}
+.shine{animation:shine 12s ease-in-out infinite}.shine-1{animation-delay:2s}.shine-2{animation-delay:4s}
+.meter{animation:reveal 1.1s ease-out both;transform-origin:24px 126px}
+@keyframes load{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes trace{0%,2%{stroke-dashoffset:55;opacity:0}5%{opacity:.8}35%{stroke-dashoffset:-1000;opacity:.8}39%,100%{stroke-dashoffset:-1000;opacity:0}}
+@keyframes shine{0%,5%{transform:translateX(0);opacity:0}8%{opacity:1}28%{transform:translateX(430px);opacity:1}30%,100%{transform:translateX(430px);opacity:0}}
+@keyframes reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}}
+</style><rect width="${width}" height="${height}" fill="${colors.base}"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif">${content}</g></svg>\n`.replace(/[ \t]+\n/g, '\n')
 }

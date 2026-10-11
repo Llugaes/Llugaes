@@ -8,17 +8,8 @@
 <a href="./docs/ACTIVITY.md">
   <picture>
     <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/9b3501636715387938b7da0f0941421d5c909f62/assets/player-log-mobile.svg" />
-    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/9b3501636715387938b7da0f0941421d5c909f62/assets/player-log.svg" alt="最近在玩：游戏封面、时长、活动日历和各平台同步状态" width="100%" />
+    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/9b3501636715387938b7da0f0941421d5c909f62/assets/player-log.svg" alt="CONTINUE：Steam、PlayStation、Switch 游戏存档" width="100%" />
   </picture>
 </a>
 
-[全部游戏记录](./docs/ACTIVITY.md) · [游记与评测](https://llugaes.github.io/game-journal/)
-
-### 正在做的东西
-
-| 项目 | 关于它 |
-| :--- | :--- |
-| **[游记 · Game Journal](https://llugaes.github.io/game-journal/)** | 玩过的游戏、认真写下的评测，以及截图里的那些瞬间。[源码 ↗](https://github.com/Llugaes/game-journal) |
-| **[空之轨迹 the 2nd · 双语 Mod](https://github.com/Llugaes/bilingual-sora-2nd)** | 双语字幕、文本与小字注解，边玩边读另一种语言。 |
-
-[其他项目 →](https://github.com/Llugaes?tab=repositories)
+[游戏游记](https://llugaes.github.io/game-journal/)　/　[空轨双语 Mod](https://github.com/Llugaes/bilingual-sora-2nd)　/　[其他项目](https://github.com/Llugaes?tab=repositories)

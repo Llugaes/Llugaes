@@ -4,7 +4,6 @@ import { steamGames, psnGames, durationMinutes, acceptSnapshot, failedSnapshot, 
 import { collectSteam, collectPsn, json } from '../scripts/collectors.mjs'
 import { localRecentGames, parseKeyValues } from '../scripts/vdf.mjs'
 import { renderSvg } from '../scripts/render.mjs'
-import { activityDays } from '../scripts/card.mjs'
 import { linkCard } from '../scripts/link-card.mjs'
 
 const config = { steamId: '76561198256716552', psnOnlineId: 'theVoiden', excludedSteamApps: { '1812620': 'DSX' } }
@@ -109,14 +108,15 @@ test('SVG 转义游戏名，显示采集来源，不冒充实时状态', () => {
   assert.ok(svg.includes('PlayStation · 待连接'))
 })
 
-test('日历区分采集发现日与任天堂实际游玩日，不填补未知历史', () => {
+test('未连接不显示零时长；过期快照保留数据并显示故障', () => {
   const data = emptyData()
-  data.intervals = [
-    { platform: 'psn', from: '2026-10-08T00:00:00Z', to: '2026-10-10T20:00:00Z', minutes: 30 },
-    { platform: 'steam', to: '2026-10-09T00:00:00Z', minutes: 0 }
-  ]
-  data.platforms.switch.days = [{ date: '2026-10-07', minutes: 60 }]
-  assert.deepEqual([...activityDays(data)], [['2026-10-11', 'observed'], ['2026-10-07', 'actual']])
+  assert.ok(renderSvg(data).includes('— h'))
+  assert.ok(renderSvg(data).includes('0/3 CONNECTED'))
+  data.platforms.steam = { ...snapshot(3000), status: 'stale', reason: 'auth_required' }
+  const svg = renderSvg(data)
+  assert.ok(svg.includes('需要重新授权'))
+  assert.ok(svg.includes('15.0'))
+  assert.ok(!svg.includes('3/3 CONNECTED'))
 })
 
 test('发布引用绑定已生成图片的提交，并保留用户正文及自适应选择', () => {
