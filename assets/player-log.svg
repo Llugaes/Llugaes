@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="680" viewBox="0 0 920 680" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="792" viewBox="0 0 920 792" role="img" aria-labelledby="title desc">
     <title id="title">Llugaes 的游戏记录</title>
-    <desc id="desc">Steam 近两周 131.1 小时，5 个游戏；已连接，采集于 2026/10/11 16:42。PlayStation 待连接，Switch 待连接。</desc>
-    <rect width="920" height="680" rx="18" fill="#132832"/>
+    <desc id="desc">Steam 近两周 131.1 小时，5 个游戏；已连接，采集于 2026/10/11 16:42。PlayStation 已连接，Switch 待连接。</desc>
+    <rect width="920" height="792" rx="18" fill="#132832"/>
     <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif">
       <text x="36" y="47" font-size="15" fill="#a0c3bd" letter-spacing="3">PLAYER LOG</text>
       <text x="36" y="95" font-size="32" fill="#f2eadb" font-weight="650">最近在玩</text>
@@ -39,14 +39,17 @@
       <rect x="36" y="538" width="570" height="6" rx="3" fill="#243941"/>
       <rect x="36" y="538" width="2" height="6" rx="3" fill="#699e92"/>
       <text x="884" y="547" font-size="13" fill="#9baeb3" text-anchor="end">累计 41.3 h</text></g>
-
-      <path d="M36 595H884" stroke="#30454c"/>
-      <circle cx="41" cy="629" r="4" fill="#96d4ba"/>
-      <text x="54" y="635" font-size="16" fill="#d7e1df" >Steam · 已连接</text>
-<circle cx="335" cy="629" r="4" fill="#607a85"/>
-      <text x="348" y="635" font-size="16" fill="#d7e1df" >PlayStation · 待连接</text>
-<circle cx="629" cy="629" r="4" fill="#607a85"/>
-      <text x="642" y="635" font-size="16" fill="#d7e1df" >Switch · 待连接</text>
-      <text x="36" y="662" font-size="12" fill="#9baeb3" >时长按平台记录；各平台独立统计。完整记录与数据说明 ↗</text>
+      <text x="36" y="620" font-size="14" fill="#a0c3bd" letter-spacing="2">PLAYSTATION</text>
+      <text x="884" y="620" font-size="14" fill="#b0c0c2" text-anchor="end">33 个已玩游戏 · 9 个白金</text>
+      <text x="36" y="651" font-size="21" fill="#f2eadb" >Onimusha: Way of the Sword</text>
+      <text x="36" y="676" font-size="12" fill="#9baeb3" >采集于 2026/10/11 16:49 · 已连接</text>
+      <path d="M36 707H884" stroke="#30454c"/>
+      <circle cx="41" cy="741" r="4" fill="#96d4ba"/>
+      <text x="54" y="747" font-size="16" fill="#d7e1df" >Steam · 已连接</text>
+<circle cx="335" cy="741" r="4" fill="#96d4ba"/>
+      <text x="348" y="747" font-size="16" fill="#d7e1df" >PlayStation · 已连接</text>
+<circle cx="629" cy="741" r="4" fill="#607a85"/>
+      <text x="642" y="747" font-size="16" fill="#d7e1df" >Switch · 待连接</text>
+      <text x="36" y="774" font-size="12" fill="#9baeb3" >时长按平台记录；各平台独立统计。完整记录与数据说明 ↗</text>
     </g>
   </svg>

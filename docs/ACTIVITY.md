@@ -18,9 +18,47 @@
 
 ## PlayStation
 
-待连接 · 数据时间：尚未采集（北京时间）
+已连接 · 数据时间：2026/10/11 16:49（北京时间）
 
-尚未连接，不将缺失数据记为 0。
+PSN 返回的已玩游戏与累计时长。不同版本独立记录。
+
+白金 9 · 金 25 · 银 87 · 铜 511
+
+| 游戏 | 近两周 / 小时 | 累计 / 小时 |
+| :--- | ---: | ---: |
+| Onimusha: Way of the Sword | — | 23.6 |
+| Marvel's Spider-Man 2 | — | 0.3 |
+| Ghost of Yōtei | — | 55.4 |
+| Bloodborne™ | — | 26.9 |
+| Sekiro™: Shadows Die Twice | — | 10.5 |
+| DEATH STRANDING 2: ON THE BEACH | — | 58.4 |
+| Nioh 3 | — | 0.0 |
+| Nioh 3 | — | 4.8 |
+| Bloodborne™ | — | 0.6 |
+| ELDEN RING NIGHTREIGN | — | 6.1 |
+| Unicorn Overlord | — | 38.3 |
+| Ghost of Tsushima | — | 87.5 |
+| Netflix | — | 0.0 |
+| Monster Hunter Wilds | — | 2.9 |
+| Black Myth: Wukong | — | 7.8 |
+| The Legend of Heroes: KAI NO KISEKI -Farewell, O Zemuria- | — | 102.7 |
+| Zenless Zone Zero | — | 0.1 |
+| Stellar Blade™ | — | 49.1 |
+| Stellar Blade™ | — | 1.9 |
+| Rise of the Ronin™ | — | 0.1 |
+| Rise of the Ronin™ | — | 81.2 |
+| Nioh 2 | — | 48.9 |
+| bilibili | — | 0.0 |
+| Ys X: Nordics | — | 53.8 |
+| FINAL FANTASY XVI | — | 2.3 |
+| Lies of P | — | 1.5 |
+| FINAL FANTASY XVI | — | 3.9 |
+| Demon's Souls | — | 47.9 |
+| DRAGON BALL Z: KAKAROT | — | 2.9 |
+| Dragon's Crown Pro | — | 1.4 |
+| Forspoken | — | 4.3 |
+| ELDEN RING | — | 9.4 |
+| Tales of Arise | — | 0.8 |
 
 ## Nintendo Switch
 

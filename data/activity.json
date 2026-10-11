@@ -45,9 +45,249 @@
       ]
     },
     "psn": {
-      "status": "pending",
-      "reason": "unavailable",
-      "games": []
+      "status": "synced",
+      "source": "psn-api",
+      "account": "theVoiden",
+      "collectedAt": "2026-10-11T08:49:03.614Z",
+      "games": [
+        {
+          "id": "PPSA27836_00",
+          "title": "Onimusha: Way of the Sword",
+          "totalMinutes": 1419,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-09-12T03:00:14.590Z"
+        },
+        {
+          "id": "PPSA08340_00",
+          "title": "Marvel's Spider-Man 2",
+          "totalMinutes": 15,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-08-09T09:45:52.790Z"
+        },
+        {
+          "id": "PPSA26344_00",
+          "title": "Ghost of Yōtei",
+          "totalMinutes": 3323,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-08-09T08:17:52.050Z"
+        },
+        {
+          "id": "CUSA03023_00",
+          "title": "Bloodborne™",
+          "totalMinutes": 1616,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-08-09T07:49:20.950Z"
+        },
+        {
+          "id": "CUSA13910_00",
+          "title": "Sekiro™: Shadows Die Twice",
+          "totalMinutes": 629,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-07-11T15:01:15.960Z"
+        },
+        {
+          "id": "PPSA30556_00",
+          "title": "DEATH STRANDING 2: ON THE BEACH",
+          "totalMinutes": 3502,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-05-23T21:53:23.658Z"
+        },
+        {
+          "id": "PPSA34974_00",
+          "title": "Nioh 3",
+          "totalMinutes": 0,
+          "recentMinutes": null,
+          "lastPlayedAt": "2026-02-04T13:22:36.730Z"
+        },
+        {
+          "id": "PPSA29602_00",
+          "title": "Nioh 3",
+          "totalMinutes": 289,
+          "recentMinutes": null,
+          "lastPlayedAt": "2025-09-30T02:08:11.260Z"
+        },
+        {
+          "id": "CUSA01363_00",
+          "title": "Bloodborne™",
+          "totalMinutes": 34,
+          "recentMinutes": null,
+          "lastPlayedAt": "2025-06-14T10:43:54.870Z"
+        },
+        {
+          "id": "PPSA25968_00",
+          "title": "ELDEN RING NIGHTREIGN",
+          "totalMinutes": 367,
+          "recentMinutes": null,
+          "lastPlayedAt": "2025-02-16T13:07:57.670Z"
+        },
+        {
+          "id": "PPSA09894_00",
+          "title": "Unicorn Overlord",
+          "totalMinutes": 2300,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-12-13T17:36:26.360Z"
+        },
+        {
+          "id": "PPSA20180_00",
+          "title": "Ghost of Tsushima",
+          "totalMinutes": 5252,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-11-24T07:31:16.170Z"
+        },
+        {
+          "id": "PPSA01616_00",
+          "title": "Netflix",
+          "totalMinutes": 1,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-11-22T04:30:46.950Z"
+        },
+        {
+          "id": "PPSA24190_00",
+          "title": "Monster Hunter Wilds",
+          "totalMinutes": 172,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-10-29T16:57:09.570Z"
+        },
+        {
+          "id": "PPSA23226_00",
+          "title": "Black Myth: Wukong",
+          "totalMinutes": 471,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-10-26T06:05:10.520Z"
+        },
+        {
+          "id": "PPSA23643_00",
+          "title": "The Legend of Heroes: KAI NO KISEKI -Farewell, O Zemuria-",
+          "totalMinutes": 6164,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-10-12T10:35:58.640Z"
+        },
+        {
+          "id": "PPSA20599_00",
+          "title": "Zenless Zone Zero",
+          "totalMinutes": 3,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-09-08T13:16:55.630Z"
+        },
+        {
+          "id": "PPSA13198_00",
+          "title": "Stellar Blade™",
+          "totalMinutes": 2945,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-05-05T13:52:39.880Z"
+        },
+        {
+          "id": "PPSA18489_00",
+          "title": "Stellar Blade™",
+          "totalMinutes": 112,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-04-09T14:29:55.060Z"
+        },
+        {
+          "id": "PPSA19248_00",
+          "title": "Rise of the Ronin™",
+          "totalMinutes": 3,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-04-06T16:57:48.750Z"
+        },
+        {
+          "id": "PPSA04558_00",
+          "title": "Rise of the Ronin™",
+          "totalMinutes": 4874,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-04-06T14:50:12.480Z"
+        },
+        {
+          "id": "PPSA02463_00",
+          "title": "Nioh 2",
+          "totalMinutes": 2934,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-03-21T16:03:41.190Z"
+        },
+        {
+          "id": "PPSA06274_00",
+          "title": "bilibili",
+          "totalMinutes": 0,
+          "recentMinutes": null,
+          "lastPlayedAt": "2024-03-12T17:24:29.300Z"
+        },
+        {
+          "id": "PPSA13414_00",
+          "title": "Ys X: Nordics",
+          "totalMinutes": 3227,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-10-07T20:08:20.290Z"
+        },
+        {
+          "id": "PPSA10666_00",
+          "title": "FINAL FANTASY XVI",
+          "totalMinutes": 137,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-07-30T11:18:41.530Z"
+        },
+        {
+          "id": "PPSA15890_00",
+          "title": "Lies of P",
+          "totalMinutes": 88,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-07-30T08:57:46.850Z"
+        },
+        {
+          "id": "PPSA13804_00",
+          "title": "FINAL FANTASY XVI",
+          "totalMinutes": 232,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-06-13T15:37:14.990Z"
+        },
+        {
+          "id": "PPSA01340_00",
+          "title": "Demon's Souls",
+          "totalMinutes": 2871,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-01-20T23:14:48.510Z"
+        },
+        {
+          "id": "CUSA31285_00",
+          "title": "DRAGON BALL Z: KAKAROT",
+          "totalMinutes": 174,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-01-15T15:42:22.430Z"
+        },
+        {
+          "id": "CUSA10209_00",
+          "title": "Dragon's Crown Pro",
+          "totalMinutes": 87,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-01-02T08:48:29.890Z"
+        },
+        {
+          "id": "PPSA05702_00",
+          "title": "Forspoken",
+          "totalMinutes": 261,
+          "recentMinutes": null,
+          "lastPlayedAt": "2023-01-02T07:20:42.030Z"
+        },
+        {
+          "id": "CUSA31066_00",
+          "title": "ELDEN RING",
+          "totalMinutes": 563,
+          "recentMinutes": null,
+          "lastPlayedAt": "2021-11-14T11:11:30.010Z"
+        },
+        {
+          "id": "CUSA27055_00",
+          "title": "Tales of Arise",
+          "totalMinutes": 49,
+          "recentMinutes": null,
+          "lastPlayedAt": "2021-09-05T14:18:49.480Z"
+        }
+      ],
+      "trophies": {
+        "platinum": 9,
+        "gold": 25,
+        "silver": 87,
+        "bronze": 511
+      }
     },
     "switch": {
       "status": "pending",
