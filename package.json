@@ -1,0 +1,25 @@
+{
+  "name": "llugaes-player-log",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub 主页的游戏记录与跨平台同步",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "sync": "node scripts/sync.mjs",
+    "render": "node scripts/render.mjs",
+    "import:steam": "node scripts/import-steam.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Llugaes/Llugaes.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Llugaes/Llugaes/issues"
+  },
+  "homepage": "https://github.com/Llugaes/Llugaes#readme",
+  "dependencies": {
+    "psn-api": "2.18.1"
+  }
+}

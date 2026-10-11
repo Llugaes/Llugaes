@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "platforms": {
+    "steam": {
+      "status": "local",
+      "source": "steam-local",
+      "account": "76561198256716552",
+      "collectedAt": "2026-10-11T08:11:52.275Z",
+      "reason": "missing_secret",
+      "games": [
+        {
+          "id": "4225980",
+          "title": "空之轨迹 the 2nd",
+          "totalMinutes": 6757,
+          "recentMinutes": 5682,
+          "lastPlayedAt": "2026-10-11T05:52:18.000Z"
+        },
+        {
+          "id": "3841510",
+          "title": "真・三国无双２ with 猛将传 Remastered",
+          "totalMinutes": 1255,
+          "recentMinutes": 1255,
+          "lastPlayedAt": "2026-10-08T02:41:03.000Z"
+        },
+        {
+          "id": "587260",
+          "title": "东亰幻都 eX+",
+          "totalMinutes": 3003,
+          "recentMinutes": 935,
+          "lastPlayedAt": "2026-10-11T05:39:22.000Z"
+        },
+        {
+          "id": "2909400",
+          "title": "FINAL FANTASY VII REBIRTH",
+          "totalMinutes": 1304,
+          "recentMinutes": 11,
+          "lastPlayedAt": "2026-10-11T07:50:12.000Z"
+        },
+        {
+          "id": "3447040",
+          "title": "空之轨迹 the 1st",
+          "totalMinutes": 2477,
+          "recentMinutes": 1,
+          "lastPlayedAt": "2026-10-10T14:02:53.000Z"
+        }
+      ]
+    },
+    "psn": {
+      "status": "pending",
+      "reason": "missing_secret",
+      "games": []
+    },
+    "switch": {
+      "status": "pending",
+      "reason": "missing_secret",
+      "games": []
+    }
+  },
+  "intervals": []
+}

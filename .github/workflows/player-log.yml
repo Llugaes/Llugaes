@@ -1,0 +1,76 @@
+name: 游戏记录同步
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'test/**'
+      - 'package*.json'
+      - 'activity.config.json'
+      - '.github/workflows/player-log.yml'
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - 'test/**'
+      - 'package*.json'
+      - 'activity.config.json'
+      - '.github/workflows/player-log.yml'
+
+permissions:
+  contents: read
+concurrency:
+  group: player-log-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+  sync:
+    needs: check
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: 采集游戏记录
+        id: collect
+        continue-on-error: true
+        run: npm run sync
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
+          NXAPI_PRESENCE_URL: ${{ secrets.NXAPI_PRESENCE_URL }}
+          NXAPI_NSA_ID: ${{ secrets.NXAPI_NSA_ID }}
+      - name: 提交已核实数据
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/activity.json assets/player-log.svg docs/ACTIVITY.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: 同步游戏记录'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: 报告平台连接故障
+        if: steps.collect.outcome == 'failure'
+        run: exit 1
