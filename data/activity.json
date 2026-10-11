@@ -291,7 +291,7 @@
     },
     "switch": {
       "status": "pending",
-      "reason": "missing_secret",
+      "reason": "invalid_data",
       "games": []
     }
   },
