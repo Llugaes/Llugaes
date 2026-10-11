@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="./assets/intro.svg" alt="Llugaes — Code, play, repeat." width="100%" />
+  <img src="./assets/danbai-banner-smooth.png" alt="Llugaes 与蛋白 — CODING 划掉，换成 VIBING。GAMING, REPEATING." width="100%" />
 </p>
 
-写点工具，玩点游戏，留下一些记录。
+白天写点工具，晚上继续读档。蛋白负责在旁边监工。
 
-这里放着我的个人项目：让游戏多一点玩法，也让日常操作少一点重复。
+这里记录代码，也记录游戏。把喜欢的世界多逛一会儿，把重复的事情交给自动化。
 
 ### 正在做的东西
 
@@ -12,7 +12,6 @@
 | :--- | :--- |
 | **[游记 · Game Journal](https://llugaes.github.io/game-journal/)** | 玩过的游戏、认真写下的评测，以及截图里的那些瞬间。[源码 ↗](https://github.com/Llugaes/game-journal) |
 | **[空之轨迹 the 2nd · 双语 Mod](https://github.com/Llugaes/bilingual-sora-2nd)** | 双语字幕、文本与小字注解，边玩边读另一种语言。 |
-| **[Trigger Trim](https://github.com/Llugaes/gamepad-trigger-trim)** | 手柄扳机检测与行程映射预览，让输入参数看得见、调得清。 |
 
 ### 游戏之外
 
