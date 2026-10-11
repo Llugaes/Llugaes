@@ -48,6 +48,8 @@ test('Nintendo 隐藏游戏不公开，保留平台实际日期和分钟', () =>
   assert.equal(result.days[0].minutes, 30)
   assert.equal(result.days[0].date, '2026-10-10')
   assert.throws(() => nintendoHistory({ ...history, playHistories: null }))
+  assert.throws(() => nintendoHistory({ ...history, hiddenTitleList: [{ unknownField: 'hidden' }] }))
+  assert.equal(nintendoHistory({ ...history, hiddenTitleList: [{ titleId: 'hidden' }] }).games.length, 1)
 })
 test('Nintendo 重复采集同一天是修正，不能重复累计', async () => {
   const result = await collectNintendo({ env: { NINTENDO_SESSION_TOKEN: 'session-secret' }, at,

@@ -16,6 +16,15 @@ function playDate(value) {
   return match[1]
 }
 
+function hiddenTitles(response) {
+  if (!Array.isArray(response.hiddenTitleList)) throw new SyncError('invalid_data')
+  return new Set(response.hiddenTitleList.map(value => {
+    const id = typeof value === 'string' ? value : value?.titleId
+    if (typeof id !== 'string' || !id) throw new SyncError('invalid_data')
+    return id
+  }))
+}
+
 // 只描述结构，绝不记录响应中的账号、凭据或字段值。
 export function schemaShape(value, depth = 0) {
   if (value === null) return 'null'
@@ -38,7 +47,7 @@ export async function nintendoJson(url, options = {}, fetcher = fetch) {
 export function nintendoHistory(response) {
   if (!Array.isArray(response.playHistories) || !Array.isArray(response.recentPlayHistories)
     || !Array.isArray(response.hiddenTitleList)) throw new SyncError('invalid_data')
-  const hidden = new Set(response.hiddenTitleList.map(value => String(value?.titleId ?? value)))
+  const hidden = hiddenTitles(response)
   const games = response.playHistories.filter(g => !hidden.has(String(g.titleId))).map(g => {
     if (!g.titleId || !g.titleName || number(g.totalPlayedMinutes) === null) throw new SyncError('invalid_data')
     return { id: String(g.titleId), title: g.titleName, totalMinutes: g.totalPlayedMinutes,
@@ -75,7 +84,7 @@ export async function collectNintendo({ env, at, previous, fetcher }) {
     throw error
   }
   // 平台会重复返回近期日期。按日期替换而非累加，以接收迟到记录或修正。
-  const hidden = new Set(response.hiddenTitleList.map(value => String(value?.titleId ?? value)))
+  const hidden = hiddenTitles(response)
   const retained = previous?.source === 'nintendo-history' && previous.accountScope === accountScope ? previous.days || [] : []
   const byDay = new Map(retained.map(day => {
     const games = day.games.filter(game => !hidden.has(game.id))
