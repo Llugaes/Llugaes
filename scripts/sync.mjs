@@ -31,6 +31,7 @@ for (const [platform, collector] of Object.entries({ steam: collectSteam, psn: c
     const stage = ['psn_signin', 'psn_token', 'psn_profile', 'psn_games', 'psn_trophies'].includes(error.stage) ? error.stage : ''
     const http = Number.isInteger(error.httpStatus) ? ` HTTP ${error.httpStatus}${error.responseType === 'non-json' ? ' non-json' : ''}` : ''
     reports.push(`${platform}: ${snapshot.reason}${stage ? ` (${stage}${http})` : ''}；保留最后一次有效数据`)
+    if (platform === 'switch' && error.code === 'invalid_data' && error.schema) reports.push(`Nintendo 响应结构（仅字段类型）：${JSON.stringify(error.schema)}`)
     if (snapshot.reason !== 'missing_secret') failures++
   }
 }

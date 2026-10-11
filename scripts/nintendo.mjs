@@ -1,5 +1,13 @@
 import { SyncError, iso, number } from './model.mjs'
 
+// 只描述结构，绝不记录响应中的账号、凭据或字段值。
+export function schemaShape(value, depth = 0) {
+  if (value === null) return 'null'
+  if (Array.isArray(value)) return { length: value.length, item: value.length && depth < 5 ? schemaShape(value[0], depth + 1) : null }
+  if (typeof value !== 'object' || depth >= 5) return typeof value
+  return Object.fromEntries(Object.entries(value).filter(([key]) => /^[a-zA-Z][a-zA-Z0-9_]{0,39}$/.test(key)).slice(0, 35).map(([key, item]) => [key, schemaShape(item, depth + 1)]))
+}
+
 export const nintendoClient = '5c38e31cd085304b'
 export const nintendoAgent = 'com.nintendo.znej/1.13.0 (Android/7.1.2)'
 export async function nintendoJson(url, options = {}, fetcher = fetch) {
@@ -40,9 +48,14 @@ export async function collectNintendo({ env, at, previous, fetcher }) {
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer-session-token' })
   }, fetcher)
   if (!token.access_token) throw new SyncError('auth_required')
-  const result = nintendoHistory(await nintendoJson('https://app-api.znej.nintendo.com/api/v2.0/users/me/play_histories', {
+  const response = await nintendoJson('https://app-api.znej.nintendo.com/api/v2.0/users/me/play_histories', {
     headers: { Authorization: `Bearer ${token.access_token}`, 'User-Agent': nintendoAgent, 'gentry-locale': 'ja-JP' }
-  }, fetcher))
+  }, fetcher)
+  let result
+  try { result = nintendoHistory(response) } catch (error) {
+    error.schema = schemaShape(response)
+    throw error
+  }
   // 平台会重复返回近期日期。按日期替换而非累加，以接收迟到记录或修正。
   const byDay = new Map((previous?.source === 'nintendo-history' ? previous.days || [] : []).map(day => [day.date, day]))
   for (const day of result.days) byDay.set(day.date, day)
