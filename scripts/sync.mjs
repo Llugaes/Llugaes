@@ -29,7 +29,7 @@ for (const [platform, collector] of Object.entries({ steam: collectSteam, psn: c
     const snapshot = failedSnapshot(data.platforms[platform], error.code)
     data.platforms[platform] = snapshot
     const stage = ['psn_signin', 'psn_token', 'psn_profile', 'psn_games', 'psn_trophies'].includes(error.stage) ? error.stage : ''
-    const http = Number.isInteger(error.httpStatus) ? ` HTTP ${error.httpStatus}` : ''
+    const http = Number.isInteger(error.httpStatus) ? ` HTTP ${error.httpStatus}${error.responseType === 'non-json' ? ' non-json' : ''}` : ''
     reports.push(`${platform}: ${snapshot.reason}${stage ? ` (${stage}${http})` : ''}；保留最后一次有效数据`)
     if (snapshot.reason !== 'missing_secret') failures++
   }
