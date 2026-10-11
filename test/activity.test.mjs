@@ -1,9 +1,10 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { steamGames, psnGames, durationMinutes, switchGames, acceptSnapshot, failedSnapshot, emptyData } from '../scripts/model.mjs'
-import { collectSteam, collectPsn, collectSwitch, json } from '../scripts/collectors.mjs'
+import { steamGames, psnGames, durationMinutes, acceptSnapshot, failedSnapshot, emptyData } from '../scripts/model.mjs'
+import { collectSteam, collectPsn, json } from '../scripts/collectors.mjs'
 import { localRecentGames, parseKeyValues } from '../scripts/vdf.mjs'
 import { renderSvg } from '../scripts/render.mjs'
+import { activityDays } from '../scripts/card.mjs'
 
 const config = { steamId: '76561198256716552', psnOnlineId: 'theVoiden', excludedSteamApps: { '1812620': 'DSX' } }
 const at = '2026-10-11T08:00:00.000Z'
@@ -88,18 +89,6 @@ test('PSN 截断分页不覆盖成功快照', async () => {
   api.getUserPlayedGames = async () => ({ titles: [], totalItemCount: 5 })
   await assert.rejects(collectPsn({ env: { PSN_NPSSO: 'test' }, config, at, api }), { code: 'incomplete' })
 })
-test('Switch 离线保留已观测游戏，不把未知时长变成 0', async () => {
-  const previous = [{ id: 'A', title: 'A', totalMinutes: 120 }]
-  assert.deepEqual(switchGames({ friend: { presence: { state: 'OFFLINE' } } }, previous, at), previous)
-  const result = switchGames({ friend: { presence: { state: 'PLAYING', game: { name: 'B' } } } }, previous, at)
-  assert.equal(result.length, 2)
-  assert.equal(result[0].totalMinutes, null)
-  const offlineGame = switchGames({ friend: { presence: { state: 'ONLINE', game: { name: 'C', totalPlayTime: 180 } } } }, previous, at)
-  assert.equal(offlineGame[0].title, 'C')
-  assert.equal(offlineGame[0].totalMinutes, 180)
-  await assert.rejects(collectSwitch({ env: { NXAPI_PRESENCE_URL: 'https://example.test/private', NXAPI_NSA_ID: 'mine' }, at,
-    fetcher: async () => ({ ok: true, json: async () => ({ friend: { nsaId: 'other' } }) }) }), { code: 'account_mismatch' })
-})
 test('本机导入排除过期两周计数，只提取游戏字段', () => {
   const vdf = '"UserLocalConfigStore" { "private" "never publish" "Software" { "Valve" { "Steam" { "apps" { "587260" { "Playtime" "3000" "Playtime2wks" "900" "LastPlayed" "1791690000" } "1" { "Playtime" "3" "Playtime2wks" "3" "LastPlayed" "1" } } } } } }'
   const games = localRecentGames(vdf, at)
@@ -117,4 +106,14 @@ test('SVG 转义游戏名，显示采集来源，不冒充实时状态', () => {
   assert.ok(!svg.includes('<script>'))
   assert.ok(svg.includes('本机记录'))
   assert.ok(svg.includes('PlayStation · 待连接'))
+})
+
+test('日历区分采集发现日与任天堂实际游玩日，不填补未知历史', () => {
+  const data = emptyData()
+  data.intervals = [
+    { platform: 'psn', from: '2026-10-08T00:00:00Z', to: '2026-10-10T20:00:00Z', minutes: 30 },
+    { platform: 'steam', to: '2026-10-09T00:00:00Z', minutes: 0 }
+  ]
+  data.platforms.switch.days = [{ date: '2026-10-07', minutes: 60 }]
+  assert.deepEqual([...activityDays(data)], [['2026-10-11', 'observed'], ['2026-10-07', 'actual']])
 })

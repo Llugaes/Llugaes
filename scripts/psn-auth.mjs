@@ -33,7 +33,7 @@ export async function psnAuthorization({ env, config, api, at, readVault = read,
   else {
     let fresh
     if (cached?.refreshToken && cached.refreshExpiresAt > now + 60000) {
-      try { fresh = await api.exchangeRefreshTokenForAuthTokens(cached.refreshToken) } catch { /* 已撤销时仅尝试一次初始授权。 */ }
+      try { fresh = await psnRequest('psn_refresh', () => api.exchangeRefreshTokenForAuthTokens(cached.refreshToken)) } catch { /* 已撤销时仅尝试一次初始授权。 */ }
     }
     if (!fresh) {
       const code = await psnRequest('psn_signin', () => api.exchangeNpssoForAccessCode(secret))

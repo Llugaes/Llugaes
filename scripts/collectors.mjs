@@ -1,9 +1,9 @@
-import { SyncError, steamGames, psnGames, switchGames, number } from './model.mjs'
+import { SyncError, steamGames, psnGames, number } from './model.mjs'
 import { psnAuthorization } from './psn-auth.mjs'
 import { psnRequest } from './psn-request.mjs'
 
 export async function json(url, fetcher = fetch) {
-  // 不记录包含 key / 私人 presence 地址的 URL、响应正文或底层异常。
+  // 不记录包含 key 的地址的 URL、响应正文或底层异常。
   try {
     const response = await fetcher(url, { signal: AbortSignal.timeout(25000), redirect: 'error' })
     if (!response.ok) throw new Error()
@@ -43,14 +43,4 @@ export async function collectPsn({ env, config, at, api, readVault, writeVault }
     offset = result.nextOffset
   }
   throw new SyncError('incomplete')
-}
-
-export async function collectSwitch({ env, at, previous, fetcher }) {
-  if (!env.NXAPI_PRESENCE_URL || !env.NXAPI_NSA_ID) throw new SyncError('missing_secret')
-  const url = new URL(env.NXAPI_PRESENCE_URL)
-  if (url.protocol !== 'https:' || url.username || url.password) throw new SyncError('invalid_data')
-  const data = await json(url, fetcher)
-  if (data?.friend?.nsaId !== env.NXAPI_NSA_ID) throw new SyncError('account_mismatch')
-  return { status: 'synced', source: 'nxapi-presence', collectedAt: at,
-    games: switchGames(data, previous?.games, at) }
 }

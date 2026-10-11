@@ -5,7 +5,12 @@
 代码不一定自己写，游戏一定得自己打！<br>
 ~~游戏时长能不能也算工龄...~~
 
-[![最近在玩：Steam 游玩记录及各平台连接状态](./assets/player-log.svg)](./docs/ACTIVITY.md)
+<a href="./docs/ACTIVITY.md">
+  <picture>
+    <source media="(max-width: 600px)" srcset="./assets/player-log-mobile.svg" />
+    <img src="./assets/player-log.svg" alt="最近在玩：游戏封面、时长、活动日历和各平台同步状态" width="100%" />
+  </picture>
+</a>
 
 [全部游戏记录](./docs/ACTIVITY.md) · [游记与评测](https://llugaes.github.io/game-journal/)
 

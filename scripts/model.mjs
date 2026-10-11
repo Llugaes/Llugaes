@@ -36,19 +36,8 @@ export function psnGames(titles) {
     if (!g.titleId || !(g.localizedName || g.name)) throw new SyncError('invalid_data')
     return { id: String(g.titleId), title: g.localizedName || g.name,
       totalMinutes: durationMinutes(g.playDuration), recentMinutes: null,
-      lastPlayedAt: iso(g.lastPlayedDateTime) }
+      lastPlayedAt: iso(g.lastPlayedDateTime), imageUrl: typeof (g.localizedImageUrl || g.imageUrl) === 'string' ? (g.localizedImageUrl || g.imageUrl) : null }
   }).sort((a, b) => (b.lastPlayedAt || '').localeCompare(a.lastPlayedAt || ''))
-}
-
-export function switchGames(data, previous = [], at) {
-  const presence = data?.friend?.presence
-  if (!presence || typeof presence.state !== 'string') throw new SyncError('invalid_data')
-  const game = presence.game
-  if (!['ONLINE', 'PLAYING'].includes(presence.state) || !game?.name) return previous
-  // NSO 没有完整历史：只保留实际观测过的游戏，不把离线解释为清空游戏库。
-  const id = game.name
-  const entry = { id, title: game.name, totalMinutes: number(game.totalPlayTime), recentMinutes: null, lastPlayedAt: at }
-  return [entry, ...previous.filter(g => g.id !== id)].slice(0, 50)
 }
 
 export function acceptSnapshot(previous = {}, current, platform) {

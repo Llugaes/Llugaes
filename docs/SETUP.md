@@ -5,8 +5,8 @@
 ## 当前接入
 
 - Steam 已接通官方 Web API。2026-10-11 完成真实采集 → 机器人提交 → 主页卡片更新验证；[首次成功运行](https://github.com/Llugaes/Llugaes/actions/runs/38125198483)。
-- PlayStation 已实现账号校验、游戏分页与奖杯采集；等待本人授权，未做真实账号验收。
-- Switch 使用真实游玩历史，等待本人一次性授权。好友码不能直接查完整游戏历史。
+- PlayStation 已接通 `theVoiden`。2026-10-11 首次读到 33 个游戏、9 个白金奖杯，账号校验和加密会话保存已通过；[首次成功运行](https://github.com/Llugaes/Llugaes/actions/runs/38126118301)。
+- Switch 已接通 Nintendo 游玩历史。2026-10-11 首次返回 9 个游戏、1 个游玩日的明细；[首次成功运行](https://github.com/Llugaes/Llugaes/actions/runs/38126419547)。这是上游本次返回的范围，不代表完整历史逐日记录。
 - Xbox 没有账号，本次不接入。
 
 ## 连接 Steam
@@ -25,7 +25,7 @@
 
 ## 连接 Nintendo Switch
 
-采用 Nintendo Store / My Nintendo 的游玩历史，不再使用定时抓在线状态的方案。Nintendo Switch App 的登录状态不会自动共享给本项目，需要本人授权一次。
+采用 Nintendo Store / My Nintendo 的游玩历史。Nintendo Switch App 的登录状态不会自动共享给本项目，需要本人授权一次。
 
 1. 本机执行 `node scripts/connect-nintendo.mjs`，打开它显示的本机网址。
 2. 点击 Nintendo 官方登录链接，登录后右键复制“选择此账号”按钮的链接，粘贴回本机页面。
@@ -33,6 +33,8 @@
 4. 运行同步工作流，选择 `switch`。首次真实返回后核实游戏归属与数据覆盖。
 
 Nintendo Store 能返回各游戏累计时长和近期逐日记录。脚本保留返回的真实日期、接收迟到修正，并排除平台标记隐藏的游戏；好友码、账号邮箱和头像不会公开。数据可能延迟至第二天，主机睡眠联网后才上传，详见 [任天堂说明](https://en-americas-support.nintendo.com/app/answers/detail/a_id/68647/p/1128)。此接口是社区接入方案，Nintendo 改接口时可能需要维护。
+
+历史按账号的不可逆摘要隔离；换账号不合并旧记录。上游没有提供账号标识时按本次授权隔离，重新授权后建立新基线。平台新标记隐藏的游戏也会从当前保留的日记录移除，但这不会删除已发布的 Git 历史。
 
 ## 同步频率与运行方式
 
@@ -52,6 +54,7 @@ GitHub Actions 云端运行，本机不必开机。流程为：指定平台采�
 - Steam 的近两周时长独立展示；不把软件运行时间、各平台时长直接相加成个人在线时间。工具排除表在 `activity.config.json`。
 - 累计时长只对同账号、同来源、同游戏的两次采集求差。初次采集、来源切换、新游戏和计数回退都建立新基线。
 - 保留采集区间，不把跨日或补报时长拆成虚构的每日热力图。不使用机器人采集提交冒充本人的 coding 活跃度。
+- 主页的绿色日历格表示 Steam / PSN **发现累计时长增长的采集日**，金色表示 Nintendo 提供的**实际游玩日**；无证据的历史留空。日历展示最近 8 周，原始日记录和采集区间保留 366 天。
 - 同步失败不覆盖最后有效结果及其时间。已配置平台失败时 Actions 标红；尚未设置 Secret 的平台显示待连接。
 - GitHub 公开仓库的 scheduled workflows 长期无仓库活动时可能自动停用；在 Actions 中按提示重新启用。
 
@@ -71,5 +74,5 @@ npm run import:steam -- 'C:\Program Files (x86)\Steam'
 
 - [Steam IPlayerService](https://partner.steamgames.com/doc/webapi/iplayerservice?language=english)
 - [psn-api 认证接口](https://psn-api.achievements.app/api-docs/authentication)
-- [nxapi](https://github.com/samuelthomas2774/nxapi)
+- [Nintendo 游玩历史社区实现](https://github.com/ChengChung/nscard/blob/main/client/nintendo/user/playhistory.go)
 - [lowlighter/metrics Steam 插件](https://github.com/lowlighter/metrics/blob/master/source/plugins/steam/README.md)：另一种现成的 Steam 主页卡片方案。

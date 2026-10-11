@@ -14,7 +14,7 @@
 | 真・三国无双２ with 猛将传 Remastered | 20.9 | 20.9 |
 | 东亰幻都 eX+ | 15.6 | 50.0 |
 | FINAL FANTASY VII REBIRTH | 0.2 | 21.7 |
-| 空之轨迹 the 1st | 0.0 | 41.3 |
+| 空之轨迹 the 1st | <0.1 | 41.3 |
 
 ## PlayStation
 
@@ -38,14 +38,14 @@ PSN 返回的已玩游戏与累计时长。不同版本独立记录。
 | ELDEN RING NIGHTREIGN | — | 6.1 |
 | Unicorn Overlord | — | 38.3 |
 | Ghost of Tsushima | — | 87.5 |
-| Netflix | — | 0.0 |
+| Netflix | — | <0.1 |
 | Monster Hunter Wilds | — | 2.9 |
 | Black Myth: Wukong | — | 7.8 |
 | The Legend of Heroes: KAI NO KISEKI -Farewell, O Zemuria- | — | 102.7 |
-| Zenless Zone Zero | — | 0.1 |
+| Zenless Zone Zero | — | <0.1 |
 | Stellar Blade™ | — | 49.1 |
 | Stellar Blade™ | — | 1.9 |
-| Rise of the Ronin™ | — | 0.1 |
+| Rise of the Ronin™ | — | <0.1 |
 | Rise of the Ronin™ | — | 81.2 |
 | Nioh 2 | — | 48.9 |
 | bilibili | — | 0.0 |
@@ -64,7 +64,7 @@ PSN 返回的已玩游戏与累计时长。不同版本独立记录。
 
 已连接 · 数据时间：2026/10/11 16:54（北京时间）
 
-仅列出采集时观测到的游戏；时长可能为平台近似值，不代表完整历史。
+Nintendo Store 返回的游戏历史与近期逐日记录；数据可能延迟到第二天。逐日数据按平台原日期保存。
 
 | 游戏 | 近两周 / 小时 | 累计 / 小时 |
 | :--- | ---: | ---: |
@@ -77,6 +77,12 @@ PSN 返回的已玩游戏与累计时长。不同版本独立记录。
 | MONSTER HUNTER GENERATIONS ULTIMATE | — | 12.8 |
 | ユニコーンオーバーロード体験版 | — | 1.1 |
 | ゼルダの伝説　ブレス オブ ザ ワイルド | — | 3.6 |
+
+### Nintendo 逐日记录
+
+| 日期 | 小时 |
+| :--- | ---: |
+| 2026-09-26 | 3.1 |
 
 ## 后续游玩增量
 
