@@ -5,13 +5,20 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-11T09:11:12.903Z",
+      "collectedAt": "2026-10-11T16:20:51.569Z",
       "games": [
         {
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 5661,
+          "recentMinutes": 5402,
+          "lastPlayedAt": null
+        },
+        {
+          "id": "587260",
+          "title": "东亰幻都 eX+",
+          "totalMinutes": 3395,
+          "recentMinutes": 1326,
           "lastPlayedAt": null
         },
         {
@@ -19,13 +26,6 @@
           "title": "真・三国无双２ with 猛将传 Remastered",
           "totalMinutes": 1255,
           "recentMinutes": 1255,
-          "lastPlayedAt": null
-        },
-        {
-          "id": "587260",
-          "title": "东亰幻都 eX+",
-          "totalMinutes": 3003,
-          "recentMinutes": 935,
           "lastPlayedAt": null
         },
         {
@@ -41,6 +41,13 @@
           "totalMinutes": 2477,
           "recentMinutes": 1,
           "lastPlayedAt": null
+        },
+        {
+          "id": "367520",
+          "title": "Hollow Knight",
+          "totalMinutes": 2552,
+          "recentMinutes": 1,
+          "lastPlayedAt": null
         }
       ]
     },
@@ -48,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-11T09:11:12.903Z",
+      "collectedAt": "2026-10-11T16:20:51.569Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -104,7 +111,7 @@
           "totalMinutes": 0,
           "recentMinutes": null,
           "lastPlayedAt": "2026-02-04T13:22:36.730Z",
-          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202505/2102/87b721c5b7abc54f1c6f2cdf907066d8d00c9b8d73359754.png"
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/0401/835b207c01d1b02c29229e73fba0da13b914148c8b8bd4ed.png"
         },
         {
           "id": "PPSA29602_00",
@@ -112,7 +119,7 @@
           "totalMinutes": 289,
           "recentMinutes": null,
           "lastPlayedAt": "2025-09-30T02:08:11.260Z",
-          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202505/2102/87b721c5b7abc54f1c6f2cdf907066d8d00c9b8d73359754.png"
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/0401/835b207c01d1b02c29229e73fba0da13b914148c8b8bd4ed.png"
         },
         {
           "id": "CUSA01363_00",
@@ -503,6 +510,22 @@
       "platform": "psn",
       "from": "2026-10-11T09:01:32.601Z",
       "to": "2026-10-11T09:11:12.903Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-11T09:11:12.903Z",
+      "to": "2026-10-11T16:20:51.569Z",
+      "minutes": 392,
+      "comparedGames": 5,
+      "newOrResetGames": 1
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-11T09:11:12.903Z",
+      "to": "2026-10-11T16:20:51.569Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
