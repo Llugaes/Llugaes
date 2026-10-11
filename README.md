@@ -7,8 +7,8 @@
 
 <a href="./docs/ACTIVITY.md">
   <picture>
-    <source media="(max-width: 600px)" srcset="./assets/player-log-mobile.svg" />
-    <img src="./assets/player-log.svg" alt="最近在玩：游戏封面、时长、活动日历和各平台同步状态" width="100%" />
+    <source media="(max-width: 600px)" srcset="./assets/player-log-mobile.svg?v=326bc68168fb" />
+    <img src="./assets/player-log.svg?v=326bc68168fb" alt="最近在玩：游戏封面、时长、活动日历和各平台同步状态" width="100%" />
   </picture>
 </a>
 
