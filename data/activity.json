@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-11T09:01:32.601Z",
+      "collectedAt": "2026-10-11T09:11:12.903Z",
       "games": [
         {
           "id": "4225980",
@@ -48,7 +48,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-11T09:01:32.601Z",
+      "collectedAt": "2026-10-11T09:11:12.903Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -104,7 +104,7 @@
           "totalMinutes": 0,
           "recentMinutes": null,
           "lastPlayedAt": "2026-02-04T13:22:36.730Z",
-          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/0401/835b207c01d1b02c29229e73fba0da13b914148c8b8bd4ed.png"
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202505/2102/87b721c5b7abc54f1c6f2cdf907066d8d00c9b8d73359754.png"
         },
         {
           "id": "PPSA29602_00",
@@ -112,7 +112,7 @@
           "totalMinutes": 289,
           "recentMinutes": null,
           "lastPlayedAt": "2025-09-30T02:08:11.260Z",
-          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/0401/835b207c01d1b02c29229e73fba0da13b914148c8b8bd4ed.png"
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202505/2102/87b721c5b7abc54f1c6f2cdf907066d8d00c9b8d73359754.png"
         },
         {
           "id": "CUSA01363_00",
@@ -326,7 +326,7 @@
       "status": "synced",
       "source": "nintendo-history",
       "accountScope": "bfacecb78fea558a1a9a08036187ee80a75a372f3c4faf66c8546657de264141",
-      "collectedAt": "2026-10-11T09:01:32.601Z",
+      "collectedAt": "2026-10-11T09:11:12.903Z",
       "games": [
         {
           "id": "0100ff500e34a000",
@@ -487,6 +487,22 @@
       "platform": "psn",
       "from": "2026-10-11T08:58:57.698Z",
       "to": "2026-10-11T09:01:32.601Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-11T09:01:32.601Z",
+      "to": "2026-10-11T09:11:12.903Z",
+      "minutes": 0,
+      "comparedGames": 5,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-11T09:01:32.601Z",
+      "to": "2026-10-11T09:11:12.903Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
