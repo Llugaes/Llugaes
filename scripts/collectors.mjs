@@ -1,5 +1,6 @@
 import { SyncError, steamGames, psnGames, switchGames, number } from './model.mjs'
 import { psnAuthorization } from './psn-auth.mjs'
+import { psnRequest } from './psn-request.mjs'
 
 export async function json(url, fetcher = fetch) {
   // 不记录包含 key / 私人 presence 地址的 URL、响应正文或底层异常。
@@ -26,12 +27,12 @@ export async function collectPsn({ env, config, at, api, readVault, writeVault }
   const games = [], seen = new Set()
   let offset = 0
   for (let page = 0; page < 100; page++) {
-    const result = await api.getUserPlayedGames(auth, 'me', { limit: 100, offset })
+    const result = await psnRequest('psn_games', () => api.getUserPlayedGames(auth, 'me', { limit: 100, offset }))
     if (!Array.isArray(result.titles)) throw new SyncError('invalid_data')
     games.push(...result.titles)
     if (result.nextOffset === undefined || result.nextOffset === null) {
       if (number(result.totalItemCount) === null || games.length !== result.totalItemCount) throw new SyncError('incomplete')
-      const trophies = await api.getUserTrophyProfileSummary(auth, 'me')
+      const trophies = await psnRequest('psn_trophies', () => api.getUserTrophyProfileSummary(auth, 'me'))
       const earned = trophies.earnedTrophies || {}
       return { status: 'synced', source: 'psn-api', account: config.psnOnlineId, collectedAt: at,
         games: psnGames(games), trophies: { platinum: number(earned.platinum), gold: number(earned.gold),

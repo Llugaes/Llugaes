@@ -1,6 +1,7 @@
 import { createCipheriv, createDecipheriv, hkdfSync, randomBytes } from 'node:crypto'
 import { readJson, writeJson } from './io.mjs'
 import { SyncError } from './model.mjs'
+import { psnRequest } from './psn-request.mjs'
 
 const vaultPath = 'state/psn-session.enc.json'
 const context = account => `llugaes-player-log:psn:v1:${account.toLowerCase()}`
@@ -22,7 +23,8 @@ export function unseal(value, secret, account) {
 const read = async () => { try { return await readJson(vaultPath) } catch (error) { if (error.code !== 'ENOENT') throw error; return null } }
 
 export async function psnAuthorization({ env, config, api, at, readVault = read, writeVault = value => writeJson(vaultPath, value) }) {
-  const secret = env.PSN_NPSSO
+  let secret = env.PSN_NPSSO?.trim()
+  if (secret?.startsWith('{')) { try { secret = JSON.parse(secret).npsso } catch { throw new SyncError('auth_required') } }
   if (!secret) throw new SyncError('missing_secret')
   let cached, auth, changed = false
   try { const encrypted = await readVault(); if (encrypted) cached = unseal(encrypted, secret, config.psnOnlineId) } catch { /* Secret 更新后重新授权，不覆盖旧文件。 */ }
@@ -34,8 +36,8 @@ export async function psnAuthorization({ env, config, api, at, readVault = read,
       try { fresh = await api.exchangeRefreshTokenForAuthTokens(cached.refreshToken) } catch { /* 已撤销时仅尝试一次初始授权。 */ }
     }
     if (!fresh) {
-      try { fresh = await api.exchangeAccessCodeForAuthTokens(await api.exchangeNpssoForAccessCode(secret)) }
-      catch { throw new SyncError('auth_required') }
+      const code = await psnRequest('psn_signin', () => api.exchangeNpssoForAccessCode(secret))
+      fresh = await psnRequest('psn_token', () => api.exchangeAccessCodeForAuthTokens(code))
     }
     if (!fresh.accessToken) throw new SyncError('auth_required')
     auth = { accessToken: fresh.accessToken, refreshToken: fresh.refreshToken,
@@ -43,7 +45,7 @@ export async function psnAuthorization({ env, config, api, at, readVault = read,
       refreshExpiresAt: now + Number(fresh.refreshTokenExpiresIn || 0) * 1000 }
     changed = true
   }
-  const profile = await api.getProfileFromAccountId(auth, 'me')
+  const profile = await psnRequest('psn_profile', () => api.getProfileFromAccountId(auth, 'me'))
   if (profile.onlineId?.toLowerCase() !== config.psnOnlineId.toLowerCase()) throw new SyncError('account_mismatch')
   if (changed && auth.refreshToken) await writeVault(seal(auth, secret, config.psnOnlineId))
   return { accessToken: auth.accessToken }
