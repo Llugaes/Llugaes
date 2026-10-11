@@ -72,11 +72,14 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md data/activity.json assets/player-log.svg assets/player-log-mobile.svg assets/covers docs/ACTIVITY.md
+          git add data/activity.json assets/player-log.svg assets/player-log-mobile.svg assets/covers docs/ACTIVITY.md
           if [ -f state/psn-session.enc.json ]; then git add state/psn-session.enc.json; fi
           if ! git diff --cached --quiet; then
             git commit -m 'chore: 同步游戏记录'
             git pull --rebase origin main
+            node scripts/link-card.mjs
+            git add README.md
+            if ! git diff --cached --quiet; then git commit -m 'chore: 更新主页卡片引用'; fi
             git push origin HEAD:main
           fi
       - name: 报告平台连接故障

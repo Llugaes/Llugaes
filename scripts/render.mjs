@@ -1,8 +1,5 @@
 import { pathToFileURL } from 'node:url'
-import { createHash } from 'node:crypto'
-import { readFile } from 'node:fs/promises'
-import path from 'node:path'
-import { readJson, write, root } from './io.mjs'
+import { readJson, write } from './io.mjs'
 import { ensureCovers } from './covers.mjs'
 import { renderSvg as renderCard, hours as hour, statusText as status } from './card.mjs'
 const time = value => value ? new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', dateStyle: 'short', timeStyle: 'short', hour12: false }).format(new Date(value)) : '尚未采集'
@@ -37,10 +34,6 @@ export async function renderFiles(data) {
   await write('assets/player-log.svg', desktop)
   await write('assets/player-log-mobile.svg', mobile)
   await write('docs/ACTIVITY.md', renderMarkdown(data))
-  // GitHub 对固定图片 URL 有缓存；只更新卡片的内容版本，保留 README 的其他手工编辑。
-  const version = createHash('sha256').update(desktop).update(mobile).digest('hex').slice(0, 12)
-  const readme = await readFile(path.join(root, 'README.md'), 'utf8')
-  await write('README.md', readme.replace(/(src(?:set)?="\.\/assets\/player-log(?:-mobile)?\.svg)(?:\?v=[a-f0-9]+)?(")/g, `$1?v=${version}$2`))
 }
 export { renderCard as renderSvg }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await renderFiles(await readJson('data/activity.json'))

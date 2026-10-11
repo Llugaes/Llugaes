@@ -5,6 +5,7 @@ import { collectSteam, collectPsn, json } from '../scripts/collectors.mjs'
 import { localRecentGames, parseKeyValues } from '../scripts/vdf.mjs'
 import { renderSvg } from '../scripts/render.mjs'
 import { activityDays } from '../scripts/card.mjs'
+import { linkCard } from '../scripts/link-card.mjs'
 
 const config = { steamId: '76561198256716552', psnOnlineId: 'theVoiden', excludedSteamApps: { '1812620': 'DSX' } }
 const at = '2026-10-11T08:00:00.000Z'
@@ -116,4 +117,14 @@ test('日历区分采集发现日与任天堂实际游玩日，不填补未知�
   ]
   data.platforms.switch.days = [{ date: '2026-10-07', minutes: 60 }]
   assert.deepEqual([...activityDays(data)], [['2026-10-11', 'observed'], ['2026-10-07', 'actual']])
+})
+
+test('发布引用绑定已生成图片的提交，并保留用户正文及自适应选择', () => {
+  const readme = '个人正文\n<source media="(max-width:600px)" srcset="./assets/player-log-mobile.svg?v=abc" /><img src="./assets/player-log.svg?v=abc" />'
+  const first = linkCard(readme, 'a'.repeat(40)), next = linkCard(first, 'b'.repeat(40))
+  assert.ok(next.startsWith('个人正文\n<source media="(max-width:600px)"'))
+  assert.equal((next.match(new RegExp('b'.repeat(40), 'g')) || []).length, 2)
+  assert.ok(!next.includes('?v='))
+  assert.throws(() => linkCard('个人正文', 'a'.repeat(40)))
+  assert.throws(() => linkCard(readme, 'main'))
 })
