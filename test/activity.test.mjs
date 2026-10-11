@@ -68,13 +68,13 @@ test('Steam API 请求不限制返回数量，并能读取真实接口形状', a
 })
 const psnApi = onlineId => ({
   exchangeNpssoForAccessCode: async () => 'code', exchangeAccessCodeForAuthTokens: async () => ({ accessToken: 'private' }),
-  getProfileFromAccountId: async () => ({ onlineId, aboutMe: 'private' }),
+  getProfileFromAccountId: async (_, account) => { assert.equal(account, '123456789'); return { onlineId, aboutMe: 'private' } },
   getUserPlayedGames: async (_, account, { offset }) => {
-    assert.equal(account, 'me')
+    assert.equal(account, '123456789')
     return offset === 0 ? { titles: [{ titleId: 'A', name: 'A', playDuration: 'PT2H' }], totalItemCount: 2, nextOffset: 1 }
       : { titles: [{ titleId: 'B', name: 'B', playDuration: 'PT4H' }], totalItemCount: 2 }
   },
-  getUserTrophyProfileSummary: async () => ({ earnedTrophies: { platinum: 2, gold: 3, silver: 4, bronze: 5 }, personal: 'private' })
+  getUserTrophyProfileSummary: async (_, account) => { assert.equal(account, 'me'); return { accountId: '123456789', earnedTrophies: { platinum: 2, gold: 3, silver: 4, bronze: 5 }, personal: 'private' } }
 })
 test('PSN 校验本人账号、完整分页且不保留令牌和资料', async () => {
   const result = await collectPsn({ env: { PSN_NPSSO: 'test' }, config, at, api: psnApi('theVoiden') })

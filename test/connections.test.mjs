@@ -22,7 +22,9 @@ test('过期 access token 使用 refresh token 续期并保存新密文', async 
   const auth = await psnAuthorization({ env, config, at,
     readVault: async () => seal(old, env.PSN_NPSSO, config.psnOnlineId), writeVault: async value => { saved = value },
     api: { exchangeRefreshTokenForAuthTokens: async token => { assert.equal(token, 'refresh'); return { accessToken: 'new', refreshToken: 'new-refresh', expiresIn: 3600, refreshTokenExpiresIn: 10000 } },
-      exchangeNpssoForAccessCode: async () => { throw Error('不应重新登录') }, getProfileFromAccountId: async () => ({ onlineId: 'theVoiden' }) }
+      exchangeNpssoForAccessCode: async () => { throw Error('不应重新登录') },
+      getUserTrophyProfileSummary: async () => ({ accountId: '123456789' }),
+      getProfileFromAccountId: async (_, account) => { assert.equal(account, '123456789'); return { onlineId: 'theVoiden' } } }
   })
   assert.equal(auth.accessToken, 'new')
   assert.equal(unseal(saved, env.PSN_NPSSO, config.psnOnlineId).refreshToken, 'new-refresh')
@@ -31,7 +33,7 @@ test('仍有效的会话不刷新、不重复写密文', async () => {
   const cached = { accessToken: 'valid', refreshToken: 'refresh', accessExpiresAt: Date.parse(at) + 3600000 }
   const auth = await psnAuthorization({ env: { PSN_NPSSO: 'secret' }, config, at,
     readVault: async () => seal(cached, 'secret', config.psnOnlineId), writeVault: async () => { throw Error('不应写入') },
-    api: { getProfileFromAccountId: async () => ({ onlineId: 'theVoiden' }) } })
+    api: { getUserTrophyProfileSummary: async () => ({ accountId: '123456789' }), getProfileFromAccountId: async () => ({ onlineId: 'theVoiden' }) } })
   assert.equal(auth.accessToken, 'valid')
 })
 const history = { playHistories: [

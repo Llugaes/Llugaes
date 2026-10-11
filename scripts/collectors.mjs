@@ -27,12 +27,12 @@ export async function collectPsn({ env, config, at, api, readVault, writeVault }
   const games = [], seen = new Set()
   let offset = 0
   for (let page = 0; page < 100; page++) {
-    const result = await psnRequest('psn_games', () => api.getUserPlayedGames(auth, 'me', { limit: 100, offset }))
+    const result = await psnRequest('psn_games', () => api.getUserPlayedGames(auth, auth.accountId, { limit: 100, offset }))
     if (!Array.isArray(result.titles)) throw new SyncError('invalid_data')
     games.push(...result.titles)
     if (result.nextOffset === undefined || result.nextOffset === null) {
       if (number(result.totalItemCount) === null || games.length !== result.totalItemCount) throw new SyncError('incomplete')
-      const trophies = await psnRequest('psn_trophies', () => api.getUserTrophyProfileSummary(auth, 'me'))
+      const trophies = auth.trophies
       const earned = trophies.earnedTrophies || {}
       return { status: 'synced', source: 'psn-api', account: config.psnOnlineId, collectedAt: at,
         games: psnGames(games), trophies: { platinum: number(earned.platinum), gold: number(earned.gold),

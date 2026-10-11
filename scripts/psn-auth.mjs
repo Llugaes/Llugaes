@@ -45,8 +45,11 @@ export async function psnAuthorization({ env, config, api, at, readVault = read,
       refreshExpiresAt: now + Number(fresh.refreshTokenExpiresIn || 0) * 1000 }
     changed = true
   }
-  const profile = await psnRequest('psn_profile', () => api.getProfileFromAccountId(auth, 'me'))
+  const trophies = await psnRequest('psn_trophies', () => api.getUserTrophyProfileSummary(auth, 'me'))
+  const accountId = String(trophies.accountId || '')
+  if (!/^\d+$/.test(accountId)) throw new SyncError('invalid_data')
+  const profile = await psnRequest('psn_profile', () => api.getProfileFromAccountId(auth, accountId))
   if (profile.onlineId?.toLowerCase() !== config.psnOnlineId.toLowerCase()) throw new SyncError('account_mismatch')
   if (changed && auth.refreshToken) await writeVault(seal(auth, secret, config.psnOnlineId))
-  return { accessToken: auth.accessToken }
+  return { accessToken: auth.accessToken, accountId, trophies }
 }
