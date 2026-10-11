@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-11T08:42:21.463Z",
+      "collectedAt": "2026-10-11T08:56:28.785Z",
       "games": [
         {
           "id": "4225980",
@@ -48,238 +48,271 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-11T08:49:03.614Z",
+      "collectedAt": "2026-10-11T08:56:28.785Z",
       "games": [
         {
           "id": "PPSA27836_00",
           "title": "Onimusha: Way of the Sword",
           "totalMinutes": 1419,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-09-12T03:00:14.590Z"
+          "lastPlayedAt": "2026-09-12T03:00:14.590Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202605/1308/79a186e6a055909cfeb66264230ad3d76915587b0269cd0d.png"
         },
         {
           "id": "PPSA08340_00",
           "title": "Marvel's Spider-Man 2",
           "totalMinutes": 15,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-08-09T09:45:52.790Z"
+          "lastPlayedAt": "2026-08-09T09:45:52.790Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/1c7b75d8ed9271516546560d219ad0b22ee0a263b4537bd8.png"
         },
         {
           "id": "PPSA26344_00",
           "title": "Ghost of Yōtei",
           "totalMinutes": 3323,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-08-09T08:17:52.050Z"
+          "lastPlayedAt": "2026-08-09T08:17:52.050Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/2116/050bb77f895515e0b0e906b0b9d75b6174b37eece097b462.png"
         },
         {
           "id": "CUSA03023_00",
           "title": "Bloodborne™",
           "totalMinutes": 1616,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-08-09T07:49:20.950Z"
+          "lastPlayedAt": "2026-08-09T07:49:20.950Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/0713/WSZqsrnejjt85wYmUqeBQvMQ.png"
         },
         {
           "id": "CUSA13910_00",
           "title": "Sekiro™: Shadows Die Twice",
           "totalMinutes": 629,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-07-11T15:01:15.960Z"
+          "lastPlayedAt": "2026-07-11T15:01:15.960Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/img/rnd/202010/1700/B66T6RbAfvIGjpEQxPq7k0Mu.png"
         },
         {
           "id": "PPSA30556_00",
           "title": "DEATH STRANDING 2: ON THE BEACH",
           "totalMinutes": 3502,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-05-23T21:53:23.658Z"
+          "lastPlayedAt": "2026-05-23T21:53:23.658Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/ae183c63bbeb38d05ecce96aa7f693b4a3769a1835020b63.png"
         },
         {
           "id": "PPSA34974_00",
           "title": "Nioh 3",
           "totalMinutes": 0,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-02-04T13:22:36.730Z"
+          "lastPlayedAt": "2026-02-04T13:22:36.730Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/0401/835b207c01d1b02c29229e73fba0da13b914148c8b8bd4ed.png"
         },
         {
           "id": "PPSA29602_00",
           "title": "Nioh 3",
           "totalMinutes": 289,
           "recentMinutes": null,
-          "lastPlayedAt": "2025-09-30T02:08:11.260Z"
+          "lastPlayedAt": "2025-09-30T02:08:11.260Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/0401/835b207c01d1b02c29229e73fba0da13b914148c8b8bd4ed.png"
         },
         {
           "id": "CUSA01363_00",
           "title": "Bloodborne™",
           "totalMinutes": 34,
           "recentMinutes": null,
-          "lastPlayedAt": "2025-06-14T10:43:54.870Z"
+          "lastPlayedAt": "2025-06-14T10:43:54.870Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/0713/WSZqsrnejjt85wYmUqeBQvMQ.png"
         },
         {
           "id": "PPSA25968_00",
           "title": "ELDEN RING NIGHTREIGN",
           "totalMinutes": 367,
           "recentMinutes": null,
-          "lastPlayedAt": "2025-02-16T13:07:57.670Z"
+          "lastPlayedAt": "2025-02-16T13:07:57.670Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202412/1301/308f8421ff74f3b061b231defc364d3f01e1710ea6fe6876.png"
         },
         {
           "id": "PPSA09894_00",
           "title": "Unicorn Overlord",
           "totalMinutes": 2300,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-12-13T17:36:26.360Z"
+          "lastPlayedAt": "2024-12-13T17:36:26.360Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202310/1212/cac3f55580620af4a8668882618e2d776e27188be9c861d6.png"
         },
         {
           "id": "PPSA20180_00",
           "title": "Ghost of Tsushima",
           "totalMinutes": 5252,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-11-24T07:31:16.170Z"
+          "lastPlayedAt": "2024-11-24T07:31:16.170Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/niMUubpU9y1PxNvYmDfb8QFD.png"
         },
         {
           "id": "PPSA01616_00",
           "title": "Netflix",
           "totalMinutes": 1,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-11-22T04:30:46.950Z"
+          "lastPlayedAt": "2024-11-22T04:30:46.950Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202010/1422/i0AxG1FE1AMNq0KrcXepdYrd.png"
         },
         {
           "id": "PPSA24190_00",
           "title": "Monster Hunter Wilds",
           "totalMinutes": 172,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-10-29T16:57:09.570Z"
+          "lastPlayedAt": "2024-10-29T16:57:09.570Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202409/0506/aa5c40ba185302dfcc88edc276a876fdc6c516c4db07ec9d.png"
         },
         {
           "id": "PPSA23226_00",
           "title": "Black Myth: Wukong",
           "totalMinutes": 471,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-10-26T06:05:10.520Z"
+          "lastPlayedAt": "2024-10-26T06:05:10.520Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202405/2117/bd406f42e9352fdb398efcf21a4ffe575b2306ac40089d21.png"
         },
         {
           "id": "PPSA23643_00",
           "title": "The Legend of Heroes: KAI NO KISEKI -Farewell, O Zemuria-",
           "totalMinutes": 6164,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-10-12T10:35:58.640Z"
+          "lastPlayedAt": "2024-10-12T10:35:58.640Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202407/2509/1413167de970f8146e233e66a92298b0e98744aa9a04ba26.png"
         },
         {
           "id": "PPSA20599_00",
           "title": "Zenless Zone Zero",
           "totalMinutes": 3,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-09-08T13:16:55.630Z"
+          "lastPlayedAt": "2024-09-08T13:16:55.630Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202608/3108/a326ff0cdbb523ce36a8e07ec3ddb3953032f6fdde1a6c33.png"
         },
         {
           "id": "PPSA13198_00",
           "title": "Stellar Blade™",
           "totalMinutes": 2945,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-05-05T13:52:39.880Z"
+          "lastPlayedAt": "2024-05-05T13:52:39.880Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202401/2211/40e7cfd126a11fe5118310ebce6d9b3a23e7cabaca717217.png"
         },
         {
           "id": "PPSA18489_00",
           "title": "Stellar Blade™",
           "totalMinutes": 112,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-04-09T14:29:55.060Z"
+          "lastPlayedAt": "2024-04-09T14:29:55.060Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202401/2211/40e7cfd126a11fe5118310ebce6d9b3a23e7cabaca717217.png"
         },
         {
           "id": "PPSA19248_00",
           "title": "Rise of the Ronin™",
           "totalMinutes": 3,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-04-06T16:57:48.750Z"
+          "lastPlayedAt": "2024-04-06T16:57:48.750Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202212/2201/ZfPosZoz1CKZBHTIKUCQRy47.png"
         },
         {
           "id": "PPSA04558_00",
           "title": "Rise of the Ronin™",
           "totalMinutes": 4874,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-04-06T14:50:12.480Z"
+          "lastPlayedAt": "2024-04-06T14:50:12.480Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202212/2201/ZfPosZoz1CKZBHTIKUCQRy47.png"
         },
         {
           "id": "PPSA02463_00",
           "title": "Nioh 2",
           "totalMinutes": 2934,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-03-21T16:03:41.190Z"
+          "lastPlayedAt": "2024-03-21T16:03:41.190Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/0623/OKKpWNnsCZpURW2N6nnhMcj6.png"
         },
         {
           "id": "PPSA06274_00",
           "title": "bilibili",
           "totalMinutes": 0,
           "recentMinutes": null,
-          "lastPlayedAt": "2024-03-12T17:24:29.300Z"
+          "lastPlayedAt": "2024-03-12T17:24:29.300Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202112/2407/Bx097QQmNtYeOyXDMoFUnkHK.png"
         },
         {
           "id": "PPSA13414_00",
           "title": "Ys X: Nordics",
           "totalMinutes": 3227,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-10-07T20:08:20.290Z"
+          "lastPlayedAt": "2023-10-07T20:08:20.290Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202405/2322/fb0490007afcae4bddc0c940b3020080e59498626b7a41da.png"
         },
         {
           "id": "PPSA10666_00",
           "title": "FINAL FANTASY XVI",
           "totalMinutes": 137,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-07-30T11:18:41.530Z"
+          "lastPlayedAt": "2023-07-30T11:18:41.530Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202211/3007/lgFVhRm5BfoX02pRUt3lSmLV.png"
         },
         {
           "id": "PPSA15890_00",
           "title": "Lies of P",
           "totalMinutes": 88,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-07-30T08:57:46.850Z"
+          "lastPlayedAt": "2023-07-30T08:57:46.850Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/2308/06b354c8015b3c71e54f43aa883aab4641285d4a91734681.png"
         },
         {
           "id": "PPSA13804_00",
           "title": "FINAL FANTASY XVI",
           "totalMinutes": 232,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-06-13T15:37:14.990Z"
+          "lastPlayedAt": "2023-06-13T15:37:14.990Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202211/3007/lgFVhRm5BfoX02pRUt3lSmLV.png"
         },
         {
           "id": "PPSA01340_00",
           "title": "Demon's Souls",
           "totalMinutes": 2871,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-01-20T23:14:48.510Z"
+          "lastPlayedAt": "2023-01-20T23:14:48.510Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/1717/GemRaOZaCMhGxQ9dRhnQQyT5.png"
         },
         {
           "id": "CUSA31285_00",
           "title": "DRAGON BALL Z: KAKAROT",
           "totalMinutes": 174,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-01-15T15:42:22.430Z"
+          "lastPlayedAt": "2023-01-15T15:42:22.430Z",
+          "imageUrl": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA14835_00/3/i_ccd05c92612de5e47b057adf385a52d009477d50172352893034c19d2513943b/i/icon0.png"
         },
         {
           "id": "CUSA10209_00",
           "title": "Dragon's Crown Pro",
           "totalMinutes": 87,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-01-02T08:48:29.890Z"
+          "lastPlayedAt": "2023-01-02T08:48:29.890Z",
+          "imageUrl": "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA10487_00/4/i_a2e96a73f5c9e72b811c39733da5197ceca8c9cf832d3dfb9dea75ffcdecc41b/i/icon0.png"
         },
         {
           "id": "PPSA05702_00",
           "title": "Forspoken",
           "totalMinutes": 261,
           "recentMinutes": null,
-          "lastPlayedAt": "2023-01-02T07:20:42.030Z"
+          "lastPlayedAt": "2023-01-02T07:20:42.030Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202203/0922/2gqcLQ5GUmznCHUZuuamxD06.png"
         },
         {
           "id": "CUSA31066_00",
           "title": "ELDEN RING",
           "totalMinutes": 563,
           "recentMinutes": null,
-          "lastPlayedAt": "2021-11-14T11:11:30.010Z"
+          "lastPlayedAt": "2021-11-14T11:11:30.010Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202107/0902/fS3Hhaq06TqLrbjMVplA8MaY.png"
         },
         {
           "id": "CUSA27055_00",
           "title": "Tales of Arise",
           "totalMinutes": 49,
           "recentMinutes": null,
-          "lastPlayedAt": "2021-09-05T14:18:49.480Z"
+          "lastPlayedAt": "2021-09-05T14:18:49.480Z",
+          "imageUrl": "https://image.api.playstation.com/vulcan/img/rnd/202107/2321/AEsEfC42YwowOdvJ1GXZqhhS.png"
         }
       ],
       "trophies": {
@@ -293,7 +326,7 @@
       "status": "synced",
       "source": "nintendo-history",
       "accountScope": "bfacecb78fea558a1a9a08036187ee80a75a372f3c4faf66c8546657de264141",
-      "collectedAt": "2026-10-11T08:54:10.680Z",
+      "collectedAt": "2026-10-11T08:56:28.785Z",
       "games": [
         {
           "id": "0100ff500e34a000",
@@ -408,6 +441,22 @@
       "to": "2026-10-11T08:42:21.463Z",
       "minutes": 0,
       "comparedGames": 5,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-11T08:42:21.463Z",
+      "to": "2026-10-11T08:56:28.785Z",
+      "minutes": 0,
+      "comparedGames": 5,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-11T08:49:03.614Z",
+      "to": "2026-10-11T08:56:28.785Z",
+      "minutes": 0,
+      "comparedGames": 33,
       "newOrResetGames": 0
     }
   ]
