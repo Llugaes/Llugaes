@@ -2,7 +2,8 @@
   <img src="./assets/danbai-banner-smooth.png" alt="Llugaes 与蛋白 — CODING 划掉，换成 VIBING。GAMING, REPEATING." width="100%" />
 </p>
 
-代码不一定自己写，游戏一定是自己打。
+代码不一定自己写，游戏一定得自己打！<br>
+~~游戏时长能不能也算工龄...~~
 
 [![最近在玩：Steam 游玩记录及各平台连接状态](./assets/player-log.svg)](./docs/ACTIVITY.md)
 
