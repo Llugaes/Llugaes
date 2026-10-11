@@ -1,8 +1,15 @@
 name: 游戏记录同步
 on:
   workflow_dispatch:
+    inputs:
+      platforms:
+        description: '同步平台'
+        type: choice
+        default: all
+        options: [all, steam, psn, switch]
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '17 */2 * * *'
+    - cron: '47 */6 * * *'
   push:
     branches: [main]
     paths:
@@ -59,13 +66,14 @@ jobs:
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
-          NXAPI_PRESENCE_URL: ${{ secrets.NXAPI_PRESENCE_URL }}
-          NXAPI_NSA_ID: ${{ secrets.NXAPI_NSA_ID }}
+          NINTENDO_SESSION_TOKEN: ${{ secrets.NINTENDO_SESSION_TOKEN }}
+          SYNC_PLATFORMS: ${{ github.event_name == 'schedule' && (github.event.schedule == '17 */2 * * *' && 'steam,psn' || 'switch') || (inputs.platforms == 'all' && 'steam,psn,switch' || inputs.platforms) }}
       - name: 提交已核实数据
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/activity.json assets/player-log.svg docs/ACTIVITY.md
+          if [ -f state/psn-session.enc.json ]; then git add state/psn-session.enc.json; fi
           if ! git diff --cached --quiet; then
             git commit -m 'chore: 同步游戏记录'
             git pull --rebase origin main

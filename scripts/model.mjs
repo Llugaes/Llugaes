@@ -73,7 +73,7 @@ export function acceptSnapshot(previous = {}, current, platform) {
 }
 
 export function failedSnapshot(previous, code) {
-  const reason = ['missing_secret', 'account_mismatch', 'unavailable', 'incomplete', 'invalid_data'].includes(code) ? code : 'unavailable'
+  const reason = ['missing_secret', 'auth_required', 'account_mismatch', 'unavailable', 'incomplete', 'invalid_data'].includes(code) ? code : 'unavailable'
   return { ...(previous || { games: [] }), status: previous?.collectedAt ? (previous.source === 'steam-local' ? 'local' : 'stale') : 'pending', reason }
 }
 

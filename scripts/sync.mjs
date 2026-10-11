@@ -1,6 +1,7 @@
 import { appendFile } from 'node:fs/promises'
 import { readJson, writeJson } from './io.mjs'
-import { collectSteam, collectPsn, collectSwitch } from './collectors.mjs'
+import { collectSteam, collectPsn } from './collectors.mjs'
+import { collectNintendo } from './nintendo.mjs'
 import { acceptSnapshot, failedSnapshot, emptyData } from './model.mjs'
 import { renderFiles } from './render.mjs'
 
@@ -14,7 +15,10 @@ try { data = await readJson('data/activity.json') } catch (error) {
 const at = new Date().toISOString()
 const reports = []
 let failures = 0
-for (const [platform, collector] of Object.entries({ steam: collectSteam, psn: collectPsn, switch: collectSwitch })) {
+const selected = (process.env.SYNC_PLATFORMS || 'steam,psn,switch').split(',')
+if (selected.some(platform => !['steam', 'psn', 'switch'].includes(platform))) throw new Error('同步平台无效')
+for (const [platform, collector] of Object.entries({ steam: collectSteam, psn: collectPsn, switch: collectNintendo })) {
+  if (!selected.includes(platform)) continue
   try {
     const current = await collector({ env: process.env, config, titles, at, previous: data.platforms[platform] })
     const { snapshot, interval } = acceptSnapshot(data.platforms[platform], current, platform)

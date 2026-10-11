@@ -1,4 +1,5 @@
 import { SyncError, steamGames, psnGames, switchGames, number } from './model.mjs'
+import { psnAuthorization } from './psn-auth.mjs'
 
 export async function json(url, fetcher = fetch) {
   // 不记录包含 key / 私人 presence 地址的 URL、响应正文或底层异常。
@@ -18,13 +19,10 @@ export async function collectSteam({ env, config, titles, at, fetcher }) {
     games: steamGames(response.response, config, titles) }
 }
 
-export async function collectPsn({ env, config, at, api }) {
+export async function collectPsn({ env, config, at, api, readVault, writeVault }) {
   if (!env.PSN_NPSSO) throw new SyncError('missing_secret')
   api ||= await import('psn-api')
-  const code = await api.exchangeNpssoForAccessCode(env.PSN_NPSSO)
-  const auth = await api.exchangeAccessCodeForAuthTokens(code)
-  const profile = await api.getProfileFromAccountId(auth, 'me')
-  if (profile.onlineId?.toLowerCase() !== config.psnOnlineId.toLowerCase()) throw new SyncError('account_mismatch')
+  const auth = await psnAuthorization({ env, config, api, at, readVault, writeVault })
   const games = [], seen = new Set()
   let offset = 0
   for (let page = 0; page < 100; page++) {

@@ -68,7 +68,9 @@ export function renderMarkdown(data) {
   for (const [key, p] of Object.entries(data.platforms)) {
     result += `## ${{ steam: 'Steam', psn: 'PlayStation', switch: 'Nintendo Switch' }[key]}\n\n${status(p)} · 数据时间：${time(p.collectedAt)}（北京时间）\n\n`
     if (!p.collectedAt) { result += '尚未连接，不将缺失数据记为 0。\n\n'; continue }
-    result += key === 'steam' ? '近两周数据来自最近一次快照；本机缓存可能不完整，未接云端时不会自动更新。已排除 DSX 和 Wallpaper Engine。\n\n'
+    result += key === 'steam' ? (p.source === 'steam-api'
+      ? '近两周数据来自 Steam Web API 的滚动窗口，窗口移动时数字也可能减少。已排除 DSX 和 Wallpaper Engine。\n\n'
+      : '近两周数据来自最近一次本机快照，缓存可能不完整。已排除 DSX 和 Wallpaper Engine。\n\n')
       : key === 'switch' ? '仅列出采集时观测到的游戏；时长可能为平台近似值，不代表完整历史。\n\n' : 'PSN 返回的已玩游戏与累计时长。不同版本独立记录。\n\n'
     if (p.status === 'stale') result += '**最近同步失败，以下保留上次成功结果。**\n\n'
     if (p.trophies) result += `白金 ${p.trophies.platinum ?? '—'} · 金 ${p.trophies.gold ?? '—'} · 银 ${p.trophies.silver ?? '—'} · 铜 ${p.trophies.bronze ?? '—'}\n\n`
