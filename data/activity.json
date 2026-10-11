@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-11T08:56:28.785Z",
+      "collectedAt": "2026-10-11T08:58:57.698Z",
       "games": [
         {
           "id": "4225980",
@@ -48,7 +48,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-11T08:56:28.785Z",
+      "collectedAt": "2026-10-11T08:58:57.698Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -326,7 +326,7 @@
       "status": "synced",
       "source": "nintendo-history",
       "accountScope": "bfacecb78fea558a1a9a08036187ee80a75a372f3c4faf66c8546657de264141",
-      "collectedAt": "2026-10-11T08:56:28.785Z",
+      "collectedAt": "2026-10-11T08:58:57.698Z",
       "games": [
         {
           "id": "0100ff500e34a000",
@@ -455,6 +455,22 @@
       "platform": "psn",
       "from": "2026-10-11T08:49:03.614Z",
       "to": "2026-10-11T08:56:28.785Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-11T08:56:28.785Z",
+      "to": "2026-10-11T08:58:57.698Z",
+      "minutes": 0,
+      "comparedGames": 5,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-11T08:56:28.785Z",
+      "to": "2026-10-11T08:58:57.698Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
