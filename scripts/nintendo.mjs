@@ -1,4 +1,20 @@
 import { SyncError, iso, number } from './model.mjs'
+import { createHash } from 'node:crypto'
+
+export function nintendoScope(token, session) {
+  // ID token 来自 Nintendo 的 TLS 响应，仅取账号标识建立不公开原始 ID 的历史边界。
+  let subject
+  try { subject = JSON.parse(Buffer.from(token.id_token.split('.')[1], 'base64url')).sub } catch { /* 无 ID token 时按授权会话隔离。 */ }
+  const value = typeof subject === 'string' && subject ? `account:${subject}` : `session:${session}`
+  return createHash('sha256').update(`llugaes-player-log:nintendo:v1:${value}`).digest('hex')
+}
+
+function playDate(value) {
+  const match = /^(\d{4}-\d{2}-\d{2})(?:T.*)?$/.exec(value || '')
+  if (!match || !iso(value) || new Date(`${match[1]}T00:00:00Z`).toISOString().slice(0, 10) !== match[1]) throw new SyncError('invalid_data')
+  // 这是平台的日统计标签；不按 UTC/北京时间转换，否则零点可能跨日。
+  return match[1]
+}
 
 // 只描述结构，绝不记录响应中的账号、凭据或字段值。
 export function schemaShape(value, depth = 0) {
@@ -30,12 +46,13 @@ export function nintendoHistory(response) {
       playedDays: number(g.totalPlayedDays), imageUrl: typeof g.imageUrl === 'string' ? g.imageUrl : null }
   }).sort((a, b) => (b.lastPlayedAt || '').localeCompare(a.lastPlayedAt || ''))
   const days = response.recentPlayHistories.map(day => {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(day.playedDate) || !Array.isArray(day.dailyPlayHistories)) throw new SyncError('invalid_data')
+    const date = playDate(day.playedDate)
+    if (!Array.isArray(day.dailyPlayHistories)) throw new SyncError('invalid_data')
     const entries = day.dailyPlayHistories.filter(g => !hidden.has(String(g.titleId))).map(g => {
       if (!g.titleId || number(g.totalPlayedMinutes) === null) throw new SyncError('invalid_data')
       return { id: String(g.titleId), minutes: g.totalPlayedMinutes }
     })
-    return { date: day.playedDate, games: entries, minutes: entries.reduce((sum, g) => sum + g.minutes, 0) }
+    return { date, games: entries, minutes: entries.reduce((sum, g) => sum + g.minutes, 0) }
   })
   return { games, days, providerUpdatedAt: iso(response.lastUpdatedAt) }
 }
@@ -48,6 +65,7 @@ export async function collectNintendo({ env, at, previous, fetcher }) {
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer-session-token' })
   }, fetcher)
   if (!token.access_token) throw new SyncError('auth_required')
+  const accountScope = nintendoScope(token, env.NINTENDO_SESSION_TOKEN)
   const response = await nintendoJson('https://app-api.znej.nintendo.com/api/v2.0/users/me/play_histories', {
     headers: { Authorization: `Bearer ${token.access_token}`, 'User-Agent': nintendoAgent, 'gentry-locale': 'ja-JP' }
   }, fetcher)
@@ -57,8 +75,13 @@ export async function collectNintendo({ env, at, previous, fetcher }) {
     throw error
   }
   // 平台会重复返回近期日期。按日期替换而非累加，以接收迟到记录或修正。
-  const byDay = new Map((previous?.source === 'nintendo-history' ? previous.days || [] : []).map(day => [day.date, day]))
+  const hidden = new Set(response.hiddenTitleList.map(value => String(value?.titleId ?? value)))
+  const retained = previous?.source === 'nintendo-history' && previous.accountScope === accountScope ? previous.days || [] : []
+  const byDay = new Map(retained.map(day => {
+    const games = day.games.filter(game => !hidden.has(game.id))
+    return [day.date, { date: day.date, games, minutes: games.reduce((sum, game) => sum + game.minutes, 0) }]
+  }))
   for (const day of result.days) byDay.set(day.date, day)
   result.days = [...byDay.values()].filter(day => day.date >= new Date(Date.parse(at) - 366 * 86400000).toISOString().slice(0, 10)).sort((a, b) => a.date.localeCompare(b.date))
-  return { status: 'synced', source: 'nintendo-history', collectedAt: at, ...result }
+  return { status: 'synced', source: 'nintendo-history', accountScope, collectedAt: at, ...result }
 }

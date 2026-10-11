@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { seal, unseal, psnAuthorization } from '../scripts/psn-auth.mjs'
-import { nintendoHistory, collectNintendo, nintendoClient } from '../scripts/nintendo.mjs'
+import { nintendoHistory, collectNintendo, nintendoClient, nintendoScope, schemaShape } from '../scripts/nintendo.mjs'
 import { createLogin, callbackCode } from '../scripts/connect-nintendo.mjs'
 
 const at = '2026-10-11T08:00:00.000Z'
@@ -51,7 +51,7 @@ test('Nintendo 隐藏游戏不公开，保留平台实际日期和分钟', () =>
 })
 test('Nintendo 重复采集同一天是修正，不能重复累计', async () => {
   const result = await collectNintendo({ env: { NINTENDO_SESSION_TOKEN: 'session-secret' }, at,
-    previous: { source: 'nintendo-history', days: [{ date: '2026-10-10', minutes: 10, games: [] }] },
+    previous: { source: 'nintendo-history', accountScope: nintendoScope({}, 'session-secret'), days: [{ date: '2026-10-10', minutes: 10, games: [] }] },
     fetcher: async (url, options) => {
       if (url.includes('/api/token')) return { ok: true, json: async () => ({ access_token: 'access-secret' }) }
       assert.equal(options.headers.Authorization, 'Bearer access-secret')
@@ -60,6 +60,25 @@ test('Nintendo 重复采集同一天是修正，不能重复累计', async () =>
   assert.equal(result.days.length, 1)
   assert.equal(result.days[0].minutes, 30)
   assert.ok(!JSON.stringify(result).includes('secret'))
+})
+
+test('Nintendo 日期兼容时间戳标签，不因时区把游玩日挪到前一天', () => {
+  const value = { ...history, recentPlayHistories: [{ ...history.recentPlayHistories[0], playedDate: '2026-10-10T00:00:00+09:00' }] }
+  assert.equal(nintendoHistory(value).days[0].date, '2026-10-10')
+  assert.throws(() => nintendoHistory({ ...value, recentPlayHistories: [{ playedDate: '2026-02-30', dailyPlayHistories: [] }] }))
+})
+
+test('Nintendo 换号隔离历史，后来隐藏的游戏也从保留日记录移除', async () => {
+  const env = { NINTENDO_SESSION_TOKEN: 'session-secret' }
+  const previous = { source: 'nintendo-history', accountScope: nintendoScope({}, 'session-secret'), days: [{ date: '2026-10-09', minutes: 99, games: [{ id: 'hidden', minutes: 90 }, { id: '1', minutes: 9 }] }] }
+  const fetcher = async url => ({ ok: true, json: async () => url.includes('/api/token') ? { access_token: 'access-secret' } : history })
+  const same = await collectNintendo({ env, previous, fetcher, at })
+  assert.equal(same.days[0].minutes, 9)
+  assert.equal(same.days[0].games.length, 1)
+  const changed = await collectNintendo({ env: { NINTENDO_SESSION_TOKEN: 'other-account' }, previous, fetcher, at })
+  assert.equal(changed.days.length, 1)
+  assert.equal(changed.days[0].date, '2026-10-10')
+  assert.ok(!JSON.stringify(schemaShape({ token: 'secret', profile: { email: 'private@email' } })).includes('private@email'))
 })
 test('Nintendo 登录链接使用 PKCE，回调必须匹配这次登录', () => {
   const login = createLogin(), url = new URL(login.url)
