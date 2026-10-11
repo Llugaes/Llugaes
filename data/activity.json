@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-11T08:33:21.617Z",
+      "collectedAt": "2026-10-11T08:42:21.463Z",
       "games": [
         {
           "id": "4225980",
@@ -46,7 +46,7 @@
     },
     "psn": {
       "status": "pending",
-      "reason": "missing_secret",
+      "reason": "unavailable",
       "games": []
     },
     "switch": {
@@ -55,5 +55,14 @@
       "games": []
     }
   },
-  "intervals": []
+  "intervals": [
+    {
+      "platform": "steam",
+      "from": "2026-10-11T08:33:21.617Z",
+      "to": "2026-10-11T08:42:21.463Z",
+      "minutes": 0,
+      "comparedGames": 5,
+      "newOrResetGames": 0
+    }
+  ]
 }

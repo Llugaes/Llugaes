@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="680" viewBox="0 0 920 680" role="img" aria-labelledby="title desc">
     <title id="title">Llugaes 的游戏记录</title>
-    <desc id="desc">Steam 近两周 131.1 小时，5 个游戏；已连接，采集于 2026/10/11 16:33。PlayStation 待连接，Switch 待连接。</desc>
+    <desc id="desc">Steam 近两周 131.1 小时，5 个游戏；已连接，采集于 2026/10/11 16:42。PlayStation 待连接，Switch 待连接。</desc>
     <rect width="920" height="680" rx="18" fill="#132832"/>
     <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif">
       <text x="36" y="47" font-size="15" fill="#a0c3bd" letter-spacing="3">PLAYER LOG</text>
       <text x="36" y="95" font-size="32" fill="#f2eadb" font-weight="650">最近在玩</text>
       <text x="36" y="125" font-size="16" fill="#b0c0c2" >5 个游戏 · Steam 近两周记录</text>
       <text x="884" y="98" font-size="48" fill="#a1dcca" text-anchor="end" font-weight="650">131.1 h</text>
-      <text x="884" y="130" font-size="13" fill="#b0c0c2" text-anchor="end">已连接 · 2026/10/11 16:33</text>
+      <text x="884" y="130" font-size="13" fill="#b0c0c2" text-anchor="end">已连接 · 2026/10/11 16:42</text>
       <path d="M36 159H884" stroke="#30454c"/>
       <g><title>空之轨迹 the 2nd · 近两周 94.3 小时 · 累计 112.6 小时</title>
       <text x="36" y="218" font-size="20" fill="#f2eadb" >空之轨迹 the 2nd</text>
