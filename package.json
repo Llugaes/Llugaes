@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "GitHub 主页的游戏记录与跨平台同步",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "test": "node --test",
     "sync": "node scripts/sync.mjs",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/Llugaes/Llugaes#readme",
   "dependencies": {
-    "psn-api": "2.18.1"
+    "psn-api": "2.18.1",
+    "sharp": "0.35.5"
   }
 }

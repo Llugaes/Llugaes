@@ -3,7 +3,8 @@ import assert from 'node:assert/strict'
 import { steamGames, psnGames, durationMinutes, acceptSnapshot, failedSnapshot, emptyData } from '../scripts/model.mjs'
 import { collectSteam, collectPsn, json } from '../scripts/collectors.mjs'
 import { localRecentGames, parseKeyValues } from '../scripts/vdf.mjs'
-import { renderSvg } from '../scripts/render.mjs'
+import { renderSvg, renderWebp } from '../scripts/render.mjs'
+import sharp from 'sharp'
 import { linkCard } from '../scripts/link-card.mjs'
 
 const config = { steamId: '76561198256716552', psnOnlineId: 'theVoiden', excludedSteamApps: { '1812620': 'DSX' } }
@@ -125,6 +126,21 @@ test('发布引用绑定已生成图片的提交，并保留用户正文及自�
   assert.ok(next.startsWith('个人正文\n<source media="(max-width:600px)"'))
   assert.equal((next.match(new RegExp('b'.repeat(40), 'g')) || []).length, 2)
   assert.ok(!next.includes('?v='))
+  assert.ok(next.includes('player-log.webp'))
+  assert.ok(next.includes('player-log-mobile.webp'))
   assert.throws(() => linkCard('个人正文', 'a'.repeat(40)))
   assert.throws(() => linkCard(readme, 'main'))
+})
+
+test('电脑和手机版卡片生成可解码的双倍分辨率 WebP', async () => {
+  for (const mobile of [false, true]) {
+    const svg = renderSvg(emptyData(), {}, mobile)
+    const source = await sharp(Buffer.from(svg)).metadata()
+    const buffer = await renderWebp(svg)
+    const output = await sharp(buffer).metadata()
+    assert.equal(output.format, 'webp')
+    assert.equal(output.width, source.width * 2)
+    assert.equal(output.height, source.height * 2)
+    await sharp(buffer).raw().toBuffer()
+  }
 })

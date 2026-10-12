@@ -1,4 +1,5 @@
 import { pathToFileURL } from 'node:url'
+import sharp from 'sharp'
 import { readJson, write } from './io.mjs'
 import { ensureCovers } from './covers.mjs'
 import { renderSvg as renderCard, hours as hour, statusText as status } from './card.mjs'
@@ -33,7 +34,12 @@ export async function renderFiles(data) {
   const desktop = renderCard(data, covers), mobile = renderCard(data, covers, true)
   await write('assets/player-log.svg', desktop)
   await write('assets/player-log-mobile.svg', mobile)
+  await write('assets/player-log.webp', await renderWebp(desktop))
+  await write('assets/player-log-mobile.webp', await renderWebp(mobile))
   await write('docs/ACTIVITY.md', renderMarkdown(data))
+}
+export async function renderWebp(svg) {
+  return sharp(Buffer.from(svg), { density: 144 }).webp({ quality: 85, effort: 6 }).toBuffer()
 }
 export { renderCard as renderSvg }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await renderFiles(await readJson('data/activity.json'))
