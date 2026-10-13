@@ -5,20 +5,20 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-13T02:04:18.332Z",
+      "collectedAt": "2026-10-13T09:30:02.257Z",
       "games": [
         {
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 5088,
+          "recentMinutes": 4893,
           "lastPlayedAt": null
         },
         {
           "id": "587260",
           "title": "东亰幻都 eX+",
-          "totalMinutes": 5405,
-          "recentMinutes": 3336,
+          "totalMinutes": 5855,
+          "recentMinutes": 3786,
           "lastPlayedAt": null
         },
         {
@@ -55,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-13T02:04:18.332Z",
+      "collectedAt": "2026-10-13T09:30:02.257Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -616,6 +616,22 @@
       "platform": "psn",
       "from": "2026-10-12T19:50:48.497Z",
       "to": "2026-10-13T02:04:18.332Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-13T02:04:18.332Z",
+      "to": "2026-10-13T09:30:02.257Z",
+      "minutes": 450,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-13T02:04:18.332Z",
+      "to": "2026-10-13T09:30:02.257Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
