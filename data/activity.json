@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-12T19:50:48.497Z",
+      "collectedAt": "2026-10-13T02:04:18.332Z",
       "games": [
         {
           "id": "4225980",
@@ -17,8 +17,8 @@
         {
           "id": "587260",
           "title": "东亰幻都 eX+",
-          "totalMinutes": 5045,
-          "recentMinutes": 2976,
+          "totalMinutes": 5405,
+          "recentMinutes": 3336,
           "lastPlayedAt": null
         },
         {
@@ -55,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-12T19:50:48.497Z",
+      "collectedAt": "2026-10-13T02:04:18.332Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -600,6 +600,22 @@
       "platform": "psn",
       "from": "2026-10-12T09:19:42.110Z",
       "to": "2026-10-12T19:50:48.497Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-12T19:50:48.497Z",
+      "to": "2026-10-13T02:04:18.332Z",
+      "minutes": 360,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-12T19:50:48.497Z",
+      "to": "2026-10-13T02:04:18.332Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
