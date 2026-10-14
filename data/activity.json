@@ -5,13 +5,13 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-14T05:00:12.947Z",
+      "collectedAt": "2026-10-14T12:00:26.005Z",
       "games": [
         {
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 4340,
+          "recentMinutes": 4320,
           "lastPlayedAt": null
         },
         {
@@ -55,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-14T05:00:12.947Z",
+      "collectedAt": "2026-10-14T12:00:26.005Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -680,6 +680,22 @@
       "platform": "psn",
       "from": "2026-10-13T22:50:37.786Z",
       "to": "2026-10-14T05:00:12.947Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-14T05:00:12.947Z",
+      "to": "2026-10-14T12:00:26.005Z",
+      "minutes": 0,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-14T05:00:12.947Z",
+      "to": "2026-10-14T12:00:26.005Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
