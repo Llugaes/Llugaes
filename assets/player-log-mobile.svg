@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="1386" viewBox="0 0 360 1386" role="img" aria-labelledby="title desc">
-<title id="title">Llugaes 的游戏存档</title><desc id="desc">Steam 近两周 160.8 小时，已连接。PlayStation · 已连接。Switch · 已连接。</desc>
+<title id="title">Llugaes 的游戏存档</title><desc id="desc">Steam 近两周 158.0 小时，已连接。PlayStation · 已连接。Switch · 已连接。</desc>
 <defs><linearGradient id="shell" x2=".8" y2="1"><stop stop-color="#232b2d"/><stop offset=".24" stop-color="#171d20"/><stop offset="1" stop-color="#111719"/></linearGradient>
 <linearGradient id="shine"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
 <style>.mono{font-family:Consolas,Menlo,monospace}.number{font-family:Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums}.shine{opacity:0}
@@ -13,7 +13,7 @@
 @keyframes shine{0%,5%{transform:translateX(0);opacity:0}8%{opacity:1}28%{transform:translateX(430px);opacity:1}30%,100%{transform:translateX(430px);opacity:0}}
 @keyframes reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}}
 </style><rect width="360" height="1386" fill="#0d1117"/>
-<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif"><text x="24" y="31" font-size="11" fill="#a5aaa9" class="mono" letter-spacing="1.5">LLUGAES / SAVE SELECT</text><text x="336" y="31" font-size="10" fill="#d4ff73" class="mono" text-anchor="end">3/3 CONNECTED</text><text x="22" y="83" font-size="43" fill="#f4f4ed" font-weight="850" font-style="italic" letter-spacing="-3">CONTINUE</text><text x="336" y="112" font-size="13" fill="#d4ff73" class="mono" text-anchor="end">160.8 h / STEAM 14D</text><path d="M24 126H336" stroke="#323738"/><path class="meter" d="M24.00 126h136.67" stroke="#d4ff73" stroke-width="3"/><path class="meter" d="M163.67 126h128.33" stroke="#91ac69" stroke-width="3"/><path class="meter" d="M295.00 126h37.58" stroke="#627746" stroke-width="3"/><g transform="translate(24 149)"><g class="enter enter-0">
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Microsoft YaHei,sans-serif"><text x="24" y="31" font-size="11" fill="#a5aaa9" class="mono" letter-spacing="1.5">LLUGAES / SAVE SELECT</text><text x="336" y="31" font-size="10" fill="#d4ff73" class="mono" text-anchor="end">3/3 CONNECTED</text><text x="22" y="83" font-size="43" fill="#f4f4ed" font-weight="850" font-style="italic" letter-spacing="-3">CONTINUE</text><text x="336" y="112" font-size="13" fill="#d4ff73" class="mono" text-anchor="end">158.0 h / STEAM 14D</text><path d="M24 126H336" stroke="#323738"/><path class="meter" d="M24.00 126h133.58" stroke="#d4ff73" stroke-width="3"/><path class="meter" d="M160.58 126h130.69" stroke="#91ac69" stroke-width="3"/><path class="meter" d="M294.27 126h38.30" stroke="#627746" stroke-width="3"/><g transform="translate(24 149)"><g class="enter enter-0">
     <path d="M8 322H316V18" fill="none" stroke="#000" stroke-width="9" opacity=".35"/>
     <path d="M0 10L10 0H297L312 15V308L302 318H0Z" fill="url(#shell)" stroke="#859b58"/>
     <path d="M0 10L10 0H297" fill="none" stroke="#d4ff73" opacity=".8"/>
@@ -25,7 +25,7 @@
     <path d="M12 168V182H26M286 44H300V58" fill="none" stroke="#d4ff73" stroke-width="2"/>
     <text x="14" y="211" font-size="18" fill="#f4f4ed" font-weight="650">空之轨迹 the 2nd</text>
 
-    <text x="14" y="286" font-size="35" fill="#d4ff73" class="number" font-weight="700">72.0</text>
+    <text x="14" y="286" font-size="35" fill="#d4ff73" class="number" font-weight="700">69.2</text>
     <text x="298" y="281" font-size="19" fill="#d4ff73" text-anchor="end">h</text>
     <text x="14" y="306" font-size="12" fill="#a5aaa9" >这两周</text><text x="298" y="306" font-size="11" fill="#a5aaa9" text-anchor="end" class="mono">累计 112.6 h</text>
     <path class="edge edge-0" d="M1 11L11 1H296L311 16V307L301 317H1Z" pathLength="1000" fill="none" stroke="#d4ff73" stroke-width="1.5" stroke-dasharray="55 945" stroke-dashoffset="55" opacity="0"/>
