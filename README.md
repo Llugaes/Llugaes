@@ -7,8 +7,8 @@
 
 <a href="./docs/ACTIVITY.md">
   <picture>
-    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/ef4fa4b7542f41975e80c5f7056e36e20ebadec7/assets/player-log-mobile.webp" />
-    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/ef4fa4b7542f41975e80c5f7056e36e20ebadec7/assets/player-log.webp" alt="CONTINUE：Steam、PlayStation、Switch 游戏存档" width="100%" />
+    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/67fb110a4ce58d00fdf629e5b9d703a56aa81514/assets/player-log-mobile.webp" />
+    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/67fb110a4ce58d00fdf629e5b9d703a56aa81514/assets/player-log.webp" alt="CONTINUE：Steam、PlayStation、Switch 游戏存档" width="100%" />
   </picture>
 </a>
 
