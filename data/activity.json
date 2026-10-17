@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-17T12:15:02.460Z",
+      "collectedAt": "2026-10-17T15:43:43.124Z",
       "games": [
         {
           "id": "587260",
@@ -18,7 +18,7 @@
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 3451,
+          "recentMinutes": 3242,
           "lastPlayedAt": null
         },
         {
@@ -31,8 +31,8 @@
         {
           "id": "2909400",
           "title": "FINAL FANTASY VII REBIRTH",
-          "totalMinutes": 1491,
-          "recentMinutes": 198,
+          "totalMinutes": 1641,
+          "recentMinutes": 349,
           "lastPlayedAt": null
         },
         {
@@ -55,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-17T12:15:02.460Z",
+      "collectedAt": "2026-10-17T15:43:43.124Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -920,6 +920,22 @@
       "platform": "psn",
       "from": "2026-10-17T07:01:03.029Z",
       "to": "2026-10-17T12:15:02.460Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-17T12:15:02.460Z",
+      "to": "2026-10-17T15:43:43.124Z",
+      "minutes": 150,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-17T12:15:02.460Z",
+      "to": "2026-10-17T15:43:43.124Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
