@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-21T00:40:21.000Z",
+      "collectedAt": "2026-10-21T07:44:37.170Z",
       "games": [
         {
           "id": "587260",
@@ -18,7 +18,7 @@
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 1230,
+          "recentMinutes": 1207,
           "lastPlayedAt": null
         },
         {
@@ -29,17 +29,17 @@
           "lastPlayedAt": null
         },
         {
-          "id": "3841510",
-          "title": "真・三国无双２ with 猛将传 Remastered",
-          "totalMinutes": 1255,
-          "recentMinutes": 668,
-          "lastPlayedAt": null
-        },
-        {
           "id": "427520",
           "title": "Factorio",
           "totalMinutes": 5038,
           "recentMinutes": 605,
+          "lastPlayedAt": null
+        },
+        {
+          "id": "3841510",
+          "title": "真・三国无双２ with 猛将传 Remastered",
+          "totalMinutes": 1255,
+          "recentMinutes": 581,
           "lastPlayedAt": null
         },
         {
@@ -62,7 +62,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-21T00:40:21.000Z",
+      "collectedAt": "2026-10-21T07:44:37.170Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1199,6 +1199,22 @@
       "platform": "psn",
       "from": "2026-10-20T21:41:55.777Z",
       "to": "2026-10-21T00:40:21.000Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-21T00:40:21.000Z",
+      "to": "2026-10-21T07:44:37.170Z",
+      "minutes": 0,
+      "comparedGames": 7,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-21T00:40:21.000Z",
+      "to": "2026-10-21T07:44:37.170Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
