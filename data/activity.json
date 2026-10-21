@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-21T18:42:26.621Z",
+      "collectedAt": "2026-10-21T23:25:25.544Z",
       "games": [
         {
           "id": "587260",
@@ -39,7 +39,7 @@
           "id": "3841510",
           "title": "真・三国无双２ with 猛将传 Remastered",
           "totalMinutes": 1255,
-          "recentMinutes": 478,
+          "recentMinutes": 195,
           "lastPlayedAt": null
         },
         {
@@ -62,7 +62,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-21T18:42:26.621Z",
+      "collectedAt": "2026-10-21T23:25:25.544Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1247,6 +1247,22 @@
       "platform": "psn",
       "from": "2026-10-21T13:52:43.387Z",
       "to": "2026-10-21T18:42:26.621Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-21T18:42:26.621Z",
+      "to": "2026-10-21T23:25:25.544Z",
+      "minutes": 0,
+      "comparedGames": 7,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-21T18:42:26.621Z",
+      "to": "2026-10-21T23:25:25.544Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
