@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-21T23:25:25.544Z",
+      "collectedAt": "2026-10-22T04:56:56.671Z",
       "games": [
         {
           "id": "587260",
@@ -36,13 +36,6 @@
           "lastPlayedAt": null
         },
         {
-          "id": "3841510",
-          "title": "真・三国无双２ with 猛将传 Remastered",
-          "totalMinutes": 1255,
-          "recentMinutes": 195,
-          "lastPlayedAt": null
-        },
-        {
           "id": "3447040",
           "title": "空之轨迹 the 1st",
           "totalMinutes": 2477,
@@ -62,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-21T23:25:25.544Z",
+      "collectedAt": "2026-10-22T04:56:56.671Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -198,7 +191,7 @@
           "totalMinutes": 3,
           "recentMinutes": null,
           "lastPlayedAt": "2024-09-08T13:16:55.630Z",
-          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202610/1406/d49402c271539cba203f446395138d5f3689647e2fc30abd.png"
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202608/3108/a326ff0cdbb523ce36a8e07ec3ddb3953032f6fdde1a6c33.png"
         },
         {
           "id": "PPSA13198_00",
@@ -1263,6 +1256,22 @@
       "platform": "psn",
       "from": "2026-10-21T18:42:26.621Z",
       "to": "2026-10-21T23:25:25.544Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-21T23:25:25.544Z",
+      "to": "2026-10-22T04:56:56.671Z",
+      "minutes": 0,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-21T23:25:25.544Z",
+      "to": "2026-10-22T04:56:56.671Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
