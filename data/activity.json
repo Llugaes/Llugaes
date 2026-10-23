@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-23T13:31:31.812Z",
+      "collectedAt": "2026-10-23T18:25:34.081Z",
       "games": [
         {
           "id": "587260",
@@ -38,8 +38,8 @@
         {
           "id": "3259780",
           "title": "FINAL FANTASY RESONANCE",
-          "totalMinutes": 1,
-          "recentMinutes": 1,
+          "totalMinutes": 205,
+          "recentMinutes": 205,
           "lastPlayedAt": null
         },
         {
@@ -62,7 +62,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-23T13:31:31.812Z",
+      "collectedAt": "2026-10-23T18:25:34.081Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1375,6 +1375,22 @@
       "platform": "psn",
       "from": "2026-10-23T07:58:33.680Z",
       "to": "2026-10-23T13:31:31.812Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-23T13:31:31.812Z",
+      "to": "2026-10-23T18:25:34.081Z",
+      "minutes": 204,
+      "comparedGames": 7,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-23T13:31:31.812Z",
+      "to": "2026-10-23T18:25:34.081Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
