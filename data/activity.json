@@ -5,13 +5,13 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-24T11:10:26.876Z",
+      "collectedAt": "2026-10-24T16:01:42.466Z",
       "games": [
         {
           "id": "587260",
           "title": "东亰幻都 eX+",
           "totalMinutes": 6131,
-          "recentMinutes": 3580,
+          "recentMinutes": 3471,
           "lastPlayedAt": null
         },
         {
@@ -31,22 +31,15 @@
         {
           "id": "3259780",
           "title": "FINAL FANTASY RESONANCE",
-          "totalMinutes": 515,
-          "recentMinutes": 515,
+          "totalMinutes": 665,
+          "recentMinutes": 665,
           "lastPlayedAt": null
         },
         {
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 480,
-          "lastPlayedAt": null
-        },
-        {
-          "id": "3447040",
-          "title": "空之轨迹 the 1st",
-          "totalMinutes": 2477,
-          "recentMinutes": 1,
+          "recentMinutes": 436,
           "lastPlayedAt": null
         },
         {
@@ -62,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-24T11:10:26.876Z",
+      "collectedAt": "2026-10-24T16:01:42.466Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1439,6 +1432,22 @@
       "platform": "psn",
       "from": "2026-10-24T04:43:49.130Z",
       "to": "2026-10-24T11:10:26.876Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-24T11:10:26.876Z",
+      "to": "2026-10-24T16:01:42.466Z",
+      "minutes": 150,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-24T11:10:26.876Z",
+      "to": "2026-10-24T16:01:42.466Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
