@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-24T04:43:49.130Z",
+      "collectedAt": "2026-10-24T11:10:26.876Z",
       "games": [
         {
           "id": "587260",
@@ -29,17 +29,17 @@
           "lastPlayedAt": null
         },
         {
-          "id": "4225980",
-          "title": "空之轨迹 the 2nd",
-          "totalMinutes": 6757,
-          "recentMinutes": 484,
+          "id": "3259780",
+          "title": "FINAL FANTASY RESONANCE",
+          "totalMinutes": 515,
+          "recentMinutes": 515,
           "lastPlayedAt": null
         },
         {
-          "id": "3259780",
-          "title": "FINAL FANTASY RESONANCE",
-          "totalMinutes": 309,
-          "recentMinutes": 309,
+          "id": "4225980",
+          "title": "空之轨迹 the 2nd",
+          "totalMinutes": 6757,
+          "recentMinutes": 480,
           "lastPlayedAt": null
         },
         {
@@ -62,7 +62,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-24T04:43:49.130Z",
+      "collectedAt": "2026-10-24T11:10:26.876Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1423,6 +1423,22 @@
       "platform": "psn",
       "from": "2026-10-23T23:12:17.635Z",
       "to": "2026-10-24T04:43:49.130Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-24T04:43:49.130Z",
+      "to": "2026-10-24T11:10:26.876Z",
+      "minutes": 206,
+      "comparedGames": 7,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-24T04:43:49.130Z",
+      "to": "2026-10-24T11:10:26.876Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
