@@ -5,13 +5,13 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-24T18:50:11.896Z",
+      "collectedAt": "2026-10-25T04:50:12.049Z",
       "games": [
         {
           "id": "587260",
           "title": "东亰幻都 eX+",
           "totalMinutes": 6131,
-          "recentMinutes": 3302,
+          "recentMinutes": 3176,
           "lastPlayedAt": null
         },
         {
@@ -22,6 +22,13 @@
           "lastPlayedAt": null
         },
         {
+          "id": "3259780",
+          "title": "FINAL FANTASY RESONANCE",
+          "totalMinutes": 846,
+          "recentMinutes": 846,
+          "lastPlayedAt": null
+        },
+        {
           "id": "427520",
           "title": "Factorio",
           "totalMinutes": 5229,
@@ -29,17 +36,10 @@
           "lastPlayedAt": null
         },
         {
-          "id": "3259780",
-          "title": "FINAL FANTASY RESONANCE",
-          "totalMinutes": 726,
-          "recentMinutes": 726,
-          "lastPlayedAt": null
-        },
-        {
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6757,
-          "recentMinutes": 271,
+          "recentMinutes": 55,
           "lastPlayedAt": null
         },
         {
@@ -55,7 +55,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-24T18:50:11.896Z",
+      "collectedAt": "2026-10-25T04:50:12.049Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1464,6 +1464,22 @@
       "platform": "psn",
       "from": "2026-10-24T16:01:42.466Z",
       "to": "2026-10-24T18:50:11.896Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-24T18:50:11.896Z",
+      "to": "2026-10-25T04:50:12.049Z",
+      "minutes": 120,
+      "comparedGames": 6,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-24T18:50:11.896Z",
+      "to": "2026-10-25T04:50:12.049Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
