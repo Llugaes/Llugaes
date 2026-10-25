@@ -5,27 +5,27 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-25T04:50:12.049Z",
+      "collectedAt": "2026-10-25T11:39:46.035Z",
       "games": [
         {
           "id": "587260",
           "title": "东亰幻都 eX+",
           "totalMinutes": 6131,
-          "recentMinutes": 3176,
+          "recentMinutes": 3006,
+          "lastPlayedAt": null
+        },
+        {
+          "id": "3259780",
+          "title": "FINAL FANTASY RESONANCE",
+          "totalMinutes": 1266,
+          "recentMinutes": 1266,
           "lastPlayedAt": null
         },
         {
           "id": "2909400",
           "title": "FINAL FANTASY VII REBIRTH",
           "totalMinutes": 2234,
-          "recentMinutes": 941,
-          "lastPlayedAt": null
-        },
-        {
-          "id": "3259780",
-          "title": "FINAL FANTASY RESONANCE",
-          "totalMinutes": 846,
-          "recentMinutes": 846,
+          "recentMinutes": 930,
           "lastPlayedAt": null
         },
         {
@@ -34,20 +34,6 @@
           "totalMinutes": 5229,
           "recentMinutes": 796,
           "lastPlayedAt": null
-        },
-        {
-          "id": "4225980",
-          "title": "空之轨迹 the 2nd",
-          "totalMinutes": 6757,
-          "recentMinutes": 55,
-          "lastPlayedAt": null
-        },
-        {
-          "id": "367520",
-          "title": "Hollow Knight",
-          "totalMinutes": 2552,
-          "recentMinutes": 1,
-          "lastPlayedAt": null
         }
       ]
     },
@@ -55,7 +41,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-25T04:50:12.049Z",
+      "collectedAt": "2026-10-25T11:39:46.035Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1480,6 +1466,22 @@
       "platform": "psn",
       "from": "2026-10-24T18:50:11.896Z",
       "to": "2026-10-25T04:50:12.049Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-25T04:50:12.049Z",
+      "to": "2026-10-25T11:39:46.035Z",
+      "minutes": 420,
+      "comparedGames": 4,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-25T04:50:12.049Z",
+      "to": "2026-10-25T11:39:46.035Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
