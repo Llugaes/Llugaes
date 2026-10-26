@@ -5,20 +5,20 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-26T07:52:10.690Z",
+      "collectedAt": "2026-10-26T15:15:33.430Z",
       "games": [
-        {
-          "id": "587260",
-          "title": "东亰幻都 eX+",
-          "totalMinutes": 6131,
-          "recentMinutes": 1794,
-          "lastPlayedAt": null
-        },
         {
           "id": "3259780",
           "title": "FINAL FANTASY RESONANCE",
           "totalMinutes": 1580,
           "recentMinutes": 1580,
+          "lastPlayedAt": null
+        },
+        {
+          "id": "587260",
+          "title": "东亰幻都 eX+",
+          "totalMinutes": 6131,
+          "recentMinutes": 1351,
           "lastPlayedAt": null
         },
         {
@@ -41,7 +41,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-26T07:52:10.690Z",
+      "collectedAt": "2026-10-26T15:15:33.430Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -1546,6 +1546,22 @@
       "platform": "psn",
       "from": "2026-10-26T00:26:37.163Z",
       "to": "2026-10-26T07:52:10.690Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-26T07:52:10.690Z",
+      "to": "2026-10-26T15:15:33.430Z",
+      "minutes": 0,
+      "comparedGames": 4,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-26T07:52:10.690Z",
+      "to": "2026-10-26T15:15:33.430Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
