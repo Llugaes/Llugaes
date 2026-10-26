@@ -8,9 +8,11 @@
   },
   "scripts": {
     "test": "node --test",
-    "sync": "node scripts/sync.mjs",
-    "render": "node scripts/render.mjs",
-    "import:steam": "node scripts/import-steam.mjs"
+    "sync": "game-activity-card sync",
+    "render": "game-activity-card render",
+    "import:steam": "game-activity-card import-steam --steam-root",
+    "connect:nintendo": "game-activity-card connect-nintendo --repo Llugaes/Llugaes",
+    "link:card": "game-activity-card link-readme --repo Llugaes/Llugaes"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,6 @@
   },
   "homepage": "https://github.com/Llugaes/Llugaes#readme",
   "dependencies": {
-    "psn-api": "2.18.1",
-    "sharp": "0.35.5"
+    "game-activity-card": "git+https://github.com/Llugaes/game-activity-card.git#af17b4558b1a4aa504d1f26cb4986bb86e65128a"
   }
 }

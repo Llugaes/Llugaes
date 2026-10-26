@@ -13,14 +13,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
       - 'test/**'
       - 'package*.json'
       - 'activity.config.json'
       - '.github/workflows/player-log.yml'
   pull_request:
     paths:
-      - 'scripts/**'
       - 'test/**'
       - 'package*.json'
       - 'activity.config.json'
@@ -75,14 +73,14 @@ jobs:
           SYNC_PLATFORMS: ${{ github.event_name == 'schedule' && (github.event.schedule == '17 */2 * * *' && 'steam,psn' || 'switch') || (inputs.platforms == 'all' && 'steam,psn,switch' || inputs.platforms) }}
       - name: 提交已核实数据
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'Llugaes'
+          git config user.email '249094896@qq.com'
           git add data/activity.json assets/player-log.svg assets/player-log-mobile.svg assets/player-log.webp assets/player-log-mobile.webp assets/covers docs/ACTIVITY.md
           if [ -f state/psn-session.enc.json ]; then git add state/psn-session.enc.json; fi
           if ! git diff --cached --quiet; then
             git commit -m 'chore: 同步游戏记录'
             git pull --rebase origin main
-            node scripts/link-card.mjs
+            npm run link:card
             git add README.md
             if ! git diff --cached --quiet; then git commit -m 'chore: 更新主页卡片引用'; fi
             git push origin HEAD:main

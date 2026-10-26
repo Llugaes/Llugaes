@@ -1,6 +1,8 @@
 # 游戏记录同步
 
-主页使用自己的 SVG 卡片。Steam 走官方 Web API，PlayStation 使用开源 [psn-api](https://github.com/achievements-app/psn-api)，Switch 使用 Nintendo Store 游玩历史接口，参考 [Raycast 的开源实现](https://github.com/raycast/extensions/tree/main/extensions/switch-game-play-history)。
+主页使用独立的 [game-activity-card](https://github.com/Llugaes/game-activity-card) 组件，通过 `package.json` 与锁文件固定完整 Git SHA。此仓只保存自己的配置、真实记录、卡片、加密状态和消费工作流；采集、排序、渲染与平台认证只有组件仓的一份实现。别人可使用该组件的 GitHub Action 或 Node CLI，详见[接入说明](https://github.com/Llugaes/game-activity-card#readme)。
+
+最近 14 天的平台记录统一按时长排行，前三款大卡、随后最多四款小卡，没有平台名额；不拿窗口外的旧游戏补位。Steam 使用原生两周时长，PlayStation 使用观测新增，Switch 使用平台逐日记录。口径与覆盖会随每次生成显示在[全部记录](./ACTIVITY.md)。
 
 ## 当前接入
 
@@ -27,7 +29,7 @@
 
 采用 Nintendo Store / My Nintendo 的游玩历史。Nintendo Switch App 的登录状态不会自动共享给本项目，需要本人授权一次。
 
-1. 本机执行 `node scripts/connect-nintendo.mjs`，打开它显示的本机网址。
+1. 本机执行 `npm run connect:nintendo`，打开它显示的本机网址。
 2. 点击 Nintendo 官方登录链接，登录后右键复制“选择此账号”按钮的链接，粘贴回本机页面。
 3. 点击“连接并保存到 GitHub Secret”。本机只向 Nintendo 交换令牌，再通过已登录的 `gh` 保存 `NINTENDO_SESSION_TOKEN`，不显示或保存明文。
 4. 运行同步工作流，选择 `switch`。首次真实返回后核实游戏归属与数据覆盖。
@@ -51,10 +53,12 @@ GitHub Actions 云端运行，本机不必开机。流程为：指定平台采�
 ## 数据口径
 
 - 公开文件只有白名单字段：游戏名称与 ID、平台记录的游玩时长、最近游玩/采集时间、奖杯计数与同步状态。
-- Steam 的近两周时长独立展示；不把软件运行时间、各平台时长直接相加成个人在线时间。工具排除表在 `activity.config.json`。
+- 总计汇总所有可计入的近期游戏，不限图片中的七款，是平台已记录时长之和；并行运行、挂起和迟到补报可能影响它，不能当作个人实际在线时间。工具排除表在 `activity.config.json`。
+- Steam 原生窗口以采集时刻为终点；本机缓存、采集失败或超过 24 小时的冻结结果从当前排行与总计排除，详情保留上次值。
+- PSN 按每款游戏的完整采集区间计算观测新增；跨近 14 天起点的区间不摊分，可能存在历史游玩的迟到补报，最后游玩日期只用于展示及同分排序。2026-10-27 从本仓真实 Git 快照重放 71 次有效采集，补齐 70 个区间，没有拆造旧的聚合记录。
 - 累计时长只对同账号、同来源、同游戏的两次采集求差。初次采集、来源切换、新游戏和计数回退都建立新基线。
 - 保留采集区间，不把跨日或补报时长拆成虚构的每日热力图。不使用机器人采集提交冒充本人的 coding 活跃度。
-- 主页只展示三平台存档与近期游戏。Nintendo 逐日记录和 Steam / PSN 采集区间在[全部记录](./ACTIVITY.md)中查看，保留 366 天。
+- Nintendo 使用配置时区对应的最近 14 个原平台日期；缺失日期不补造每日零记录。日记录与 PSN 观测区间保留 366 天；未连接、新游戏或建立基线中的未知数不冒充零时长。
 - 同步失败不覆盖最后有效结果及其时间。已配置平台失败时 Actions 标红；尚未设置 Secret 的平台显示待连接。
 - GitHub 公开仓库的 scheduled workflows 长期无仓库活动时可能自动停用；在 Actions 中按提示重新启用。
 
@@ -66,9 +70,12 @@ Node.js 22+，`npm ci --ignore-scripts` 后执行：
 npm test
 npm run render
 npm run import:steam -- 'C:\Program Files (x86)\Steam'
+npm run connect:nintendo
 ```
 
-本机导入只读取配置指定账号的游戏记录，不保存整份 Steam 配置。云端已经连接后，本机导入会拒绝覆盖。`npm run sync` 从环境变量读取与 GitHub Secrets 同名的凭据。
+本机导入只读取配置指定账号的游戏记录，不保存整份 Steam 配置。云端已经连接后，本机导入会拒绝覆盖。`npm run sync` 从环境变量读取与 GitHub Secrets 同名的凭据。`npm run render` 离线渲染；`npm run link:card` 在图片提交之后，将 README 的两张图绑定到该提交。
+
+模型、认证、排行、日期和路径隔离回归在[组件仓 CI](https://github.com/Llugaes/game-activity-card/actions/workflows/check.yml)运行；本仓保留实际依赖安装和真实数据渲染的消费者集成测试。换组件版本时更新固定 SHA 与锁文件，再执行本仓测试和真实同步。
 
 ### 参考
 
