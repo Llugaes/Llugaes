@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-10-27T14:35:44.638Z",
+      "collectedAt": "2026-10-27T20:45:14.688Z",
       "games": [
         {
           "id": "3259780",
@@ -34,7 +34,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-10-27T14:35:44.638Z",
+      "collectedAt": "2026-10-27T20:45:14.688Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -10489,6 +10489,145 @@
             }
           ],
           "unknownGames": []
+        },
+        {
+          "from": "2026-10-27T14:35:44.638Z",
+          "to": "2026-10-27T20:45:14.688Z",
+          "games": [
+            {
+              "id": "PPSA27836_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA08340_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA26344_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA03023_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA13910_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA30556_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA34974_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA29602_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA01363_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA25968_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA09894_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20180_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01616_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA24190_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23226_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23643_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20599_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13198_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA18489_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA19248_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA04558_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA02463_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA06274_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13414_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA10666_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA15890_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13804_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01340_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31285_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA10209_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA05702_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31066_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA27055_00",
+              "minutes": 0
+            }
+          ],
+          "unknownGames": []
         }
       ]
     },
@@ -11787,6 +11926,22 @@
       "platform": "psn",
       "from": "2026-10-27T07:57:31.069Z",
       "to": "2026-10-27T14:35:44.638Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-10-27T14:35:44.638Z",
+      "to": "2026-10-27T20:45:14.688Z",
+      "minutes": 0,
+      "comparedGames": 3,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-10-27T14:35:44.638Z",
+      "to": "2026-10-27T20:45:14.688Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
