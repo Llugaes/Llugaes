@@ -7,8 +7,8 @@
 
 <a href="./docs/ACTIVITY.md">
   <picture>
-    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/eb9220cc272405a52e0fde9b7a53b3dbe00b1fe7/assets/player-log-mobile.webp" />
-    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/eb9220cc272405a52e0fde9b7a53b3dbe00b1fe7/assets/player-log.webp" alt="CONTINUE：Steam、PlayStation、Switch 近14天常玩游戏，跨平台按已记录时长排行" width="100%" />
+    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Llugaes/Llugaes/e86b264397bb7172134e9aa94d345026564fe361/assets/player-log-mobile.webp" />
+    <img src="https://raw.githubusercontent.com/Llugaes/Llugaes/e86b264397bb7172134e9aa94d345026564fe361/assets/player-log.webp" alt="CONTINUE：Steam、PlayStation、Switch 近14天常玩游戏，跨平台按已记录时长排行" width="100%" />
   </picture>
 </a>
 
