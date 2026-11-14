@@ -5,15 +5,8 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-11-13T23:38:29.754Z",
+      "collectedAt": "2026-11-14T06:34:15.358Z",
       "games": [
-        {
-          "id": "4115450",
-          "title": "Phantom Blade Zero",
-          "totalMinutes": 3579,
-          "recentMinutes": 1689,
-          "lastPlayedAt": null
-        },
         {
           "id": "3259780",
           "title": "FINAL FANTASY RESONANCE",
@@ -22,10 +15,17 @@
           "lastPlayedAt": null
         },
         {
+          "id": "4115450",
+          "title": "Phantom Blade Zero",
+          "totalMinutes": 3579,
+          "recentMinutes": 1366,
+          "lastPlayedAt": null
+        },
+        {
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6787,
-          "recentMinutes": 29,
+          "recentMinutes": 13,
           "lastPlayedAt": null
         }
       ]
@@ -34,7 +34,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-11-13T23:38:29.754Z",
+      "collectedAt": "2026-11-14T06:34:15.358Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -82,7 +82,7 @@
           "totalMinutes": 3502,
           "recentMinutes": null,
           "lastPlayedAt": "2026-05-23T21:53:23.658Z",
-          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2115/ae183c63bbeb38d05ecce96aa7f693b4a3769a1835020b63.png"
+          "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202502/2711/cbc6c3135660ec68eacc766959a766b36d7ce3fa6010ca88.png"
         },
         {
           "id": "PPSA34974_00",
@@ -18551,6 +18551,145 @@
             }
           ],
           "unknownGames": []
+        },
+        {
+          "from": "2026-11-13T23:38:29.754Z",
+          "to": "2026-11-14T06:34:15.358Z",
+          "games": [
+            {
+              "id": "PPSA27836_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA08340_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA26344_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA03023_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA13910_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA30556_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA34974_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA29602_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA01363_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA25968_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA09894_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20180_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01616_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA24190_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23226_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23643_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20599_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13198_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA18489_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA19248_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA04558_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA02463_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA06274_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13414_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA10666_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA15890_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13804_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01340_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31285_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA10209_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA05702_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31066_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA27055_00",
+              "minutes": 0
+            }
+          ],
+          "unknownGames": []
         }
       ]
     },
@@ -20797,6 +20936,22 @@
       "platform": "psn",
       "from": "2026-11-13T17:49:11.409Z",
       "to": "2026-11-13T23:38:29.754Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-11-13T23:38:29.754Z",
+      "to": "2026-11-14T06:34:15.358Z",
+      "minutes": 0,
+      "comparedGames": 3,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-11-13T23:38:29.754Z",
+      "to": "2026-11-14T06:34:15.358Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
