@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-11-18T07:37:53.126Z",
+      "collectedAt": "2026-11-18T17:22:16.297Z",
       "games": [
         {
           "id": "3259780",
@@ -18,7 +18,7 @@
           "id": "4225980",
           "title": "空之轨迹 the 2nd",
           "totalMinutes": 6787,
-          "recentMinutes": 13,
+          "recentMinutes": 5,
           "lastPlayedAt": null
         }
       ]
@@ -27,7 +27,7 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-11-18T07:37:53.126Z",
+      "collectedAt": "2026-11-18T17:22:16.297Z",
       "games": [
         {
           "id": "PPSA27836_00",
@@ -20351,6 +20351,145 @@
             }
           ],
           "unknownGames": []
+        },
+        {
+          "from": "2026-11-18T07:37:53.126Z",
+          "to": "2026-11-18T17:22:16.297Z",
+          "games": [
+            {
+              "id": "PPSA27836_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA08340_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA26344_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA03023_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA13910_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA30556_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA34974_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA29602_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA01363_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA25968_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA09894_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20180_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01616_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA24190_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23226_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23643_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20599_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13198_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA18489_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA19248_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA04558_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA02463_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA06274_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13414_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA10666_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA15890_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13804_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01340_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31285_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA10209_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA05702_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31066_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA27055_00",
+              "minutes": 0
+            }
+          ],
+          "unknownGames": []
         }
       ]
     },
@@ -22835,6 +22974,22 @@
       "platform": "psn",
       "from": "2026-11-17T22:30:40.510Z",
       "to": "2026-11-18T07:37:53.126Z",
+      "minutes": 0,
+      "comparedGames": 33,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-11-18T07:37:53.126Z",
+      "to": "2026-11-18T17:22:16.297Z",
+      "minutes": 0,
+      "comparedGames": 2,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-11-18T07:37:53.126Z",
+      "to": "2026-11-18T17:22:16.297Z",
       "minutes": 0,
       "comparedGames": 33,
       "newOrResetGames": 0
