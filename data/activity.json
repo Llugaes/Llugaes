@@ -20922,16 +20922,16 @@
       "status": "synced",
       "source": "nintendo-history",
       "accountScope": "bfacecb78fea558a1a9a08036187ee80a75a372f3c4faf66c8546657de264141",
-      "collectedAt": "2026-11-18T21:12:59.470Z",
+      "collectedAt": "2026-11-19T21:00:11.074Z",
       "games": [
         {
           "id": "0100ff500e34a000",
           "title": "Xenoblade Definitive Edition Nintendo Switch 2 Edition",
-          "totalMinutes": 3414,
+          "totalMinutes": 3573,
           "recentMinutes": null,
           "firstPlayedAt": "2025-08-01T17:58:38.000Z",
-          "lastPlayedAt": "2026-11-18T15:32:13.000Z",
-          "playedDays": 64,
+          "lastPlayedAt": "2026-11-19T16:16:12.000Z",
+          "playedDays": 65,
           "imageUrl": "https://atum-img-lp1.cdn.nintendo.net/i/c/071c63847e7a4de0ad6badb245d55fba_512"
         },
         {
@@ -21091,10 +21091,20 @@
           "games": [
             {
               "id": "0100ff500e34a000",
-              "minutes": 28
+              "minutes": 170
             }
           ],
-          "minutes": 28
+          "minutes": 170
+        },
+        {
+          "date": "2026-11-20",
+          "games": [
+            {
+              "id": "0100ff500e34a000",
+              "minutes": 18
+            }
+          ],
+          "minutes": 18
         }
       ],
       "providerUpdatedAt": null
