@@ -5,7 +5,7 @@
       "status": "synced",
       "source": "steam-api",
       "account": "76561198256716552",
-      "collectedAt": "2026-11-20T03:25:47.766Z",
+      "collectedAt": "2026-11-20T13:01:30.665Z",
       "games": [
         {
           "id": "3259780",
@@ -20,14 +20,14 @@
       "status": "synced",
       "source": "psn-api",
       "account": "theVoiden",
-      "collectedAt": "2026-11-20T03:25:47.766Z",
+      "collectedAt": "2026-11-20T13:01:30.665Z",
       "games": [
         {
           "id": "PPSA01547_00",
           "title": "Grand Theft Auto VI",
           "totalMinutes": 396,
           "recentMinutes": null,
-          "lastPlayedAt": "2026-11-19T15:52:43.840Z",
+          "lastPlayedAt": "2026-11-20T12:17:20.760Z",
           "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/1818/9f51f0ccdb65bd29c36a0907a738c2902a712f03e2fd6470.png"
         },
         {
@@ -21058,6 +21058,149 @@
             }
           ],
           "unknownGames": []
+        },
+        {
+          "from": "2026-11-20T03:25:47.766Z",
+          "to": "2026-11-20T13:01:30.665Z",
+          "games": [
+            {
+              "id": "PPSA01547_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA27836_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA08340_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA26344_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA03023_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA13910_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA30556_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA34974_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA29602_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA01363_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA25968_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA09894_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20180_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01616_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA24190_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23226_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA23643_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA20599_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13198_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA18489_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA19248_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA04558_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA02463_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA06274_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13414_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA10666_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA15890_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA13804_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA01340_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31285_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA10209_00",
+              "minutes": 0
+            },
+            {
+              "id": "PPSA05702_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA31066_00",
+              "minutes": 0
+            },
+            {
+              "id": "CUSA27055_00",
+              "minutes": 0
+            }
+          ],
+          "unknownGames": []
         }
       ]
     },
@@ -23642,6 +23785,22 @@
       "platform": "psn",
       "from": "2026-11-19T20:43:20.778Z",
       "to": "2026-11-20T03:25:47.766Z",
+      "minutes": 0,
+      "comparedGames": 34,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "steam",
+      "from": "2026-11-20T03:25:47.766Z",
+      "to": "2026-11-20T13:01:30.665Z",
+      "minutes": 0,
+      "comparedGames": 1,
+      "newOrResetGames": 0
+    },
+    {
+      "platform": "psn",
+      "from": "2026-11-20T03:25:47.766Z",
+      "to": "2026-11-20T13:01:30.665Z",
       "minutes": 0,
       "comparedGames": 34,
       "newOrResetGames": 0
